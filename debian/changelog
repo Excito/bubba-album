@@ -1,3 +1,10 @@
+bubba-album (2.4~pre4) vincent hugo; urgency=low
+
+  [ Johannes Book ]
+  * Added swedish translation
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 18 Jan 2012 13:38:43 +0100
+
 bubba-album (2.4~pre3) vincent hugo; urgency=low
 
   * updating licensing information to fit company policy
