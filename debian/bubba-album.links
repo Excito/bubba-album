@@ -4,6 +4,7 @@
 
 /usr/share/web-admin/admin/views/default/_css/jquery.ui.theme.default.css /usr/share/album/views/_css/jquery.ui.theme.default.css
 /usr/share/web-admin/admin/views/default/_css/admin.css /usr/share/album/views/_css/admin.css
+/usr/share/web-admin/admin/views/default/_css/images /usr/share/album/views/_css/images
 /usr/share/web-admin/admin/views/default/_css/IE7styles.css /usr/share/album/views/_css/IE7styles.css
 
 /usr/share/web-admin/admin/views/default/_img/background-left.png /usr/share/album/views/_img/background-left.png
@@ -24,7 +25,6 @@
 /usr/share/web-admin/admin/views/default/_js/jquery.dataTables.js /usr/share/album/views/_js/jquery.dataTables.js
 /usr/share/web-admin/admin/views/default/_js/jquery.js /usr/share/album/views/_js/jquery.js
 /usr/share/web-admin/admin/views/default/_js/jquery.sprintf.js /usr/share/album/views/_js/jquery.sprintf.js
-/usr/share/web-admin/admin/views/default/_js/jquery.ui.dialog.js /usr/share/album/views/_js/jquery.ui.dialog.js
 /usr/share/web-admin/admin/views/default/_js/jquery.ui.filemanager.js /usr/share/album/views/_js/jquery.ui.filemanager.js
 /usr/share/web-admin/admin/views/default/_js/jquery-ui.js /usr/share/album/views/_js/jquery-ui.js
 /usr/share/web-admin/admin/views/default/_js/jquery.validate.js /usr/share/album/views/_js/jquery.validate.js
