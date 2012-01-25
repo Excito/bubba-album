@@ -1,3 +1,9 @@
+bubba-album (2.4~pre6) hugo vincent; urgency=low
+
+  * Fix encoding on Swedish translation files (Closes: #1869)
+
+ -- Carl Fürstenberg <azatoth@gmail.com>  Wed, 25 Jan 2012 15:47:11 +0100
+
 bubba-album (2.4~pre5) hugo vincent; urgency=low
 
   * Regression: downgrade to old dialog for album (Closes: #1860)
