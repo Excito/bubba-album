@@ -3,6 +3,18 @@ Source: N/A
 Copyright: 2008-2012 Excito Electronics AB
 License: GPL-2.0+
 
+Files:
+ album/views/_css/album.css
+ album/views/_img/icons_album.png
+ album/views/_img/unlocked.png
+ album/views/_img/locked.png
+ album/views/_img/icons_album.xcf
+Copyright: 2008-2012 Excito Electronics AB
+Disclaimer:
+ These files are the own property of Excito Electronics AB and are not
+ free to use outside the realm of an Excito Electronics product.
+
+
 License: GPL-2.0+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
