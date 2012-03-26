@@ -2,8 +2,6 @@
 class Users extends Controller {
         function __construct() {
                 parent::Controller();
-                $this->load->helper('i18n');
-                load_lang('en');
 		}
 		public function list_users() {
 			$this->load->model('admin');
@@ -51,7 +49,7 @@ class Users extends Controller {
 			$username=strtolower(trim($this->input->post('username')));
 			$res = !$this->admin->user_exists( $username );
 			if( !$res ) {
-				$res = t('username-exists', $username);
+				$res = sprintf(_("The username <em>%s</em> allready exists, try <em>%1$s_01</em> instead"),$username);
 			}
 			print json_encode( $res );
 		}

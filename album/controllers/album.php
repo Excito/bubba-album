@@ -2,14 +2,7 @@
 class Album extends Controller {
 	function __construct() {
 		parent::Controller();
-		$this->load->helper('i18n');
 		$this->load->model('admin');
-		$my_lang = $this->admin->get_language();
-		if($my_lang) {
-			load_lang($my_lang);
-		} else {
-			load_lang('en');
-		}
 	}
 	function json() {
 		$this->load->model("Album_model");
@@ -89,9 +82,10 @@ class Album extends Controller {
 		$data['albums'] = $albums;
 
 		$this->layout->setLayout('album_layout', array(
-			'title' => "BUBBA PHOTO GALLERY", 
 			'userinfo' => $userinfo,
 			'has_access' => $has_access,
+            'language' => $this->admin->get_language(),
+            'platform' => $this->admin->get_platform(),
 			'head' => $this->load->view('album_index_head_view',$data,true) 
 		));
 		$this->layout->view('album_index_view', $data);

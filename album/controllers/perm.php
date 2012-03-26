@@ -2,8 +2,6 @@
 class Perm extends Controller {
         function __construct() {
                 parent::Controller();
-                $this->load->helper('i18n');
-                load_lang('en');
 		}
 		public function show_access() {
 			$this->load->model('admin');

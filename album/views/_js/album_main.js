@@ -32,9 +32,9 @@ var colorbox_title = function() {
 	//metadata.append($('<span/>', { 'text': caption, 'id': 'cboxTitleCaption'}));
 
 	var nodes = $([]);
-	nodes = nodes.add($('<a/>', { 'href': view_url, 'target': '_blank', 'text': $.message('View original'), 'id': 'cboxViewOriginal'}));
+	nodes = nodes.add($('<a/>', { 'href': view_url, 'target': '_blank', 'text': _('View original'), 'id': 'cboxViewOriginal'}));
 	nodes = nodes.add(metadata);
-	nodes = nodes.add($('<a/>', { 'href': download_url, 'target': '_blank', 'text': $.message('Download original'), 'id': 'cboxDownloadOriginal'}));
+	nodes = nodes.add($('<a/>', { 'href': download_url, 'target': '_blank', 'text': _('Download original'), 'id': 'cboxDownloadOriginal'}));
 	//$("#cboxClose").parent().append($('<div/>', { 'text': caption, 'id': 'cboxTitleCaption'}));
 	
 	
@@ -52,12 +52,12 @@ var update_manager_mode_no_reload = function() {
 				'slideshowAuto': false,
 				'title': colorbox_title,
 				'open': false,
-				'next': $.message('Next'),
-				'close': "Close",
-				'previous':$.message('Previous'),
-				'slideshowStart': "Start slideshow",
-				'slideshowStop': "Stop slideshow",
-				'current': "Image \{current\} of \{total\}"
+				'next': _('Next'),
+				'close': _("Close"),
+				'previous':_('Previous'),
+				'slideshowStart': _("Start slideshow"),
+				'slideshowStop': _("Stop slideshow"),
+				'current': _("Image \{current\} of \{total\}")
 			}
 		);
 	} else {
@@ -83,10 +83,10 @@ var update_manager_mode = function() {
 	);
 }
 
-copymove_yesbutton = null;
-copymove_isactive = false;
+move_yesbutton = null;
+move_isactive = false;
 
-copymove_callback = function(type) {
+move_callback = function(type) {
 
 	var panel = $("#fn-albummanager-information-panel");
 	var action = $("#fn-albummanager-action-panel");
@@ -97,14 +97,14 @@ copymove_callback = function(type) {
 
 	var speed = 750;
 
-	copymove_isactive = true;
+	move_isactive = true;
 	albummanager_obj.albummanager('disableButtons');
 
 	action.empty();
 	panel.empty();
 
 	var button_no = $("<button/>", {
-			'text': $.message("albummanager-" + type + "-no")
+			'text': _("No")
 		}
 	).appendTo(action).button({
 			text: false,
@@ -122,14 +122,14 @@ copymove_callback = function(type) {
 					direction: 'down'
 				},
 				speed);
-			copymove_yesbutton = null;
-			copymove_isactive = false;
+			move_yesbutton = null;
+			move_isactive = false;
 		}
 	);
 
-	copymove_yesbutton = $("<button/>", {
-			id: 'fn-albummanager-button-copymove',
-			text: $.message("albummanager-" + type + "-yes")
+	move_yesbutton = $("<button/>", {
+			id: 'fn-albummanager-button-move',
+			text: _("Yes")
 		}
 	).appendTo(action).button({
 			text: false,
@@ -144,7 +144,7 @@ copymove_callback = function(type) {
 				speed
 			);
 			$.throbber.show();
-			$.post(config.prefix + "/" + type + "/json", {
+			$.post(config.prefix + "/move/json", {
 					'albums': albums,
 					'images': images,
 					'path': albummanager_obj.albummanager('option', 'root')
@@ -162,8 +162,8 @@ copymove_callback = function(type) {
 					if (!data.error) {
 						update_manager_mode();
 					}
-					copymove_yesbutton = null;
-					copymove_isactive = false;
+					move_yesbutton = null;
+					move_isactive = false;
 					$(window).unbind('resize.albummanager-action');
 				},
 				'json'
@@ -188,9 +188,10 @@ copymove_callback = function(type) {
 					width: albummanager_obj.innerWidth() - (panel.outerWidth(true) - panel.innerWidth())
 				}
 			);
-		}).triggerHandler('resize.albummanager-action');
+	}).triggerHandler('resize.albummanager-action');
 
-	panel.html($.message("albummanager-" + type + "-notice", albums.length, images.length));
+	panel.html($.sprintf(_("Select destination to move %d albums and %d images"),albums.length, images.length));
+
 	panel.show('drop', {
 			direction: 'down'
 		},
@@ -239,13 +240,13 @@ var dialog_options = {
 
 var dialog_buttons = {
 	'create': [{
-			'label': $.message("next"),
+			'label': _("Next"),
 			options: {
 				'class': 'ui-next-button ui-element-width-50'
 			}
 		},
 		{
-			'label': $.message("back"),
+			'label': _("Back"),
 			options: {
 				'class': 'ui-prev-button ui-element-width-50'
 			}
@@ -288,7 +289,7 @@ var dialog_pre_open_callbacks = {
 										table.append(row);
 										row.append($('<td/>', {
 													'data': { 'username': this.username, 'realname': this.realname },
-													'html': $.message("album-users-entry", this.realname, this.username),
+													'html': $.sprintf(_("%s (%s)"), this.realname, this.username),
 													'class': 'ui-albummanager-clickable',
 													'mousedown': function(event) {
 														if( $('#fn-albummanager-users-dialog').hasClass('ui-albummanager-edit-mode') ) {
@@ -472,7 +473,7 @@ var buttons = [{
 		'disabled': ! manager_access,
 		'manager': true,
 		'type': 'ui-icons ui-album-icons ui-album-icon-create',
-		'alt': 'Create album',
+		'alt': _("Create album"),
 		'callback': function() {
 			$.post(config.prefix + "/users/check_manager_mode", {},function(data) {
 				if(data.manager_mode) {
@@ -499,7 +500,7 @@ var buttons = [{
 		'disabled': ! manager_access,
 		'manager': true,
 		'type': 'ui-icons ui-album-icons ui-album-icon-add',
-		'alt': 'Add images',
+		'alt': _("Add images"),
 		'callback': function() {
 			$.post(config.prefix + "/users/check_manager_mode", {},function(data) {
 				if(data.manager_mode) {
@@ -520,11 +521,11 @@ var buttons = [{
 		'disabled': ! manager_access,
 		'manager': true,
 		'type': 'ui-icons ui-icon-move',
-		'alt': 'Move',
+		'alt': _("Move"),
 		'callback': function() {
 			$.post(config.prefix + "/users/check_manager_mode", {},function(data) {
 				if(data.manager_mode) {
-					copymove_callback.apply(this, ['move']);
+					move_callback.apply(this, ['move']);
 				} else {
 					window.location.reload();
 				}
@@ -537,7 +538,7 @@ var buttons = [{
 		'class': 'ui-manager-access',
 		'disabled': ! manager_access,
 		'type': 'ui-icons ui-icon-pencil',
-		'alt': 'Rename',
+		'alt': _("Rename"),
 		'manager': true,
 		'callback': function() {
 			$.post(config.prefix + "/users/check_manager_mode", {},function(data) {
@@ -554,7 +555,7 @@ var buttons = [{
 		'class': 'ui-manager-access',
 		'disabled': ! manager_access,
 		'type': 'ui-icons ui-icon-unlocked',
-		'alt': 'Permissions',
+		'alt': _("Permissions"),
 		'manager': true,
 		'callback': function() {
 			$.post(config.prefix + "/users/check_manager_mode", {},function(data) {
@@ -572,7 +573,7 @@ var buttons = [{
 		'disabled': ! manager_access,
 		'manager': true,
 		'type': 'ui-icons ui-album-icons ui-album-icon-person',
-		'alt': 'Manage users',
+		'alt': _("Manage users"),
 		'callback': function() {
 			$.post(config.prefix + "/users/check_manager_mode", {},function(data) {
 				if(data.manager_mode) {
@@ -589,7 +590,7 @@ var buttons = [{
 		'disabled': ! manager_access,
 		'manager': true,
 		'type': 'ui-icons ui-icon-trash ui-albummanager-buttonbar-last',
-		'alt': 'Delete',
+		'alt': _("Delete"),
 		'callback': function() {
 			$.post(config.prefix + "/users/check_manager_mode", {},function(data) {
 				if(data.manager_mode) {
@@ -605,7 +606,7 @@ var buttons = [{
 		'class': 'ui-manager-access',
 		'disabled': ! manager_access,
 		'type': 'ui-icons ui-album-icons ui-album-icon-manage',
-		'alt': 'Manager mode',
+		'alt': _("Manager mode"),
 		'callback': function() {
 			manager_mode = ! manager_mode;
 			albummanager_obj.albummanager('setManagerMode', manager_mode);
@@ -617,7 +618,7 @@ var buttons = [{
 		'id': 'fn-albummanager-button-slideshow',
 		'disabled': false,
 		'type': 'ui-icons ui-album-icons ui-album-icon-slideshow',
-		'alt': 'Run slideshow',
+		'alt': _("Run slideshow"),
 		'callback': function() {
 			$("a[rel='fn-image']").colorbox('destroy').colorbox({
 					'photo': true,
@@ -625,12 +626,12 @@ var buttons = [{
 					'slideshowAuto': true,
 					'title': colorbox_title,
 					'open': true,
-					'next': $.message('Next'),
-					'close': "Close",
-					'previous':$.message('Previous'),
-					'slideshowStart': "Start slideshow",
-					'slideshowStop': "Stop slideshow",
-					'current': "Image \{current\} of \{total\}"
+					'next': _("Next"),
+					'close': _("Close"),
+					'previous':_("Previous"),
+					'slideshowStart': _("Start slideshow"),
+					'slideshowStop': _("Stop slideshow"),
+					'current': _("Image \{current\} of \{total\}")
 				}
 			);
 			$(window).one('cbox_closed', function() {
@@ -640,12 +641,12 @@ var buttons = [{
 							'slideshowAuto': false,
 							'title': colorbox_title,
 							'open': false,
-							'next': $.message('Next'),
-							'close': "Close",
-							'previous':$.message('Previous'),
-							'slideshowStart': "Start slideshow",
-							'slideshowStop': "Stop slideshow",
-							'current': "Image \{current\} of \{total\}"
+							'next': _("Next"),
+							'close': _("Close"),
+							'previous':_("Previous"),
+							'slideshowStart': _("Start slideshow"),
+							'slideshowStop': _("Stop slideshow"),
+							'current': _("Image \{current\} of \{total\}")
 						}
 					);
 				}
@@ -670,12 +671,12 @@ var after_draw_images_callback = function() {
 				'slideshow': true,
 				'slideshowAuto': false,
 				'title': colorbox_title,
-				'next': $.message('Next'),
-				'close': "Close",
-				'previous':$.message('Previous'),
-				'slideshowStart': "Start slideshow",
-				'slideshowStop': "Stop slideshow",
-				'current': "Image \{current\} of \{total\}"
+				'next': _("Next"),
+				'close': _("Close"),
+				'previous':_("Previous"),
+				'slideshowStart': _("Start slideshow"),
+				'slideshowStop': _("Stop slideshow"),
+				'current': _("Image \{current\} of \{total\}")
 			}
 		);
 	}
@@ -795,11 +796,35 @@ $(function() {
 						}
 					}
 				);
+
+				function _get_label(val) {
+					switch(val) {
+					case "delete":
+						ret = pgettext("dialog button label", "Delete");
+						break;
+					case "create":
+						ret = pgettext("dialog button label", "Create");
+						break;
+					case "perm":
+						ret =  pgettext("dialog button label", "Update");
+						break;
+					case "modify":
+						ret =  pgettext("dialog button label", "Update");
+						break;
+					case "add":
+						ret =  pgettext("dialog button label", "Add");
+						break;
+					default:
+						ret = "ERR: invalid label type"
+					}
+					return ret;
+				}
+
 				if (dialog_buttons[value]) {
 					var buttons = dialog_buttons[value];
 				} else {
 					var buttons = [{
-							'label': $.message("albummanager-" + value + "-dialog-button-label"),
+							'label': _get_label(value),
 							'callback': function() {
 								dialog_callbacks[value].apply(dialogs[value], arguments)
 							},
@@ -883,7 +908,7 @@ $(function() {
 				formPluginEnabled: true,
 				back: buttonpane.find('.ui-prev-button'),
 				next: buttonpane.find('.ui-next-button'),
-				textSubmit: $.message("albummanager-create-button-finish"),
+				textSubmit: _("Create album"),
 				showBackOnFirstStep: true,
 				afterNext: function(wizardData) {
 					if (wizardData.currentStep == "fn-albummanager-create-form-step-2") {
@@ -974,7 +999,7 @@ $(function() {
 
 				form.find("#fn-albummanager-users-add-cancel").button(
 						{
-							'text': $.message("albummanager-users-add-cancel"),
+							'text': _("Cancel"),
 							'icons': {
 								'primary': 'ui-icons ui-icon-close ui-corner-left'
 							}
@@ -987,7 +1012,7 @@ $(function() {
 				);
 				form.find("#fn-albummanager-users-add-ok").button(
 							{
-								'text': $.message("albummanager-users-add-ok"),
+								'text': _("Add user"),
 								'icons': {
 									'primary': 'ui-icons ui-icon-check ui-corner-right'
 								}
@@ -1059,20 +1084,20 @@ $(function() {
 				form[0].realname.focus();
 				form.find("#fn-albummanager-users-edit-cancel").button(
 					{
-						'text': $.message("albummanager-edit-cancel"),
+						'text': _("Cancel"),
 						'icons': {
 							'primary': 'ui-icons ui-icon-close ui-corner-left'
 						}
 					}		
 					).click(function(){
 							$('#fn-albummanager-users-dialog-button-add').button("enable");
-							selected.removeClass('ui-albummanager-users-edit').html($.message("album-users-entry", realname, username));
+							selected.removeClass('ui-albummanager-users-edit').html($.sprintf(_("%s (%s)"), realname, username));
 							$('#fn-albummanager-users-dialog').removeClass('ui-albummanager-edit-mode');
 						}
 					);
 				form.find("#fn-albummanager-users-edit-ok").button(
 						{
-							'text': $.message("albummanager-edit-ok"),
+							'text': _("Edit user"),
 							'icons': {
 								'primary': 'ui-icons ui-icon-check ui-corner-right'
 							}
@@ -1122,11 +1147,11 @@ $(function() {
 				var realname = selected.data('realname');
 				var subdialog = $('<div/>', { 'class': 'ui-album-dialog-subdialog ui-corner-bottom'});
 				var info = $('<div/>', { 'class':  'ui-subdialog-message'}).appendTo( subdialog );
-				info.html($.message('album-users-delete-message', username, realname));
+				info.html($.sprintf(_("Delete user <strong>%s</strong> (\"%s\")?"), username, realname));
 				var action = $('<div/>', { 'class': 'ui-subdialog-action'}).appendTo( subdialog );
 				subdialog.hide().appendTo(dialogs['users']);
 				var button_no = $("<button/>", {
-						'text': $.message("albummanager-del-no")
+						'text': _("Cancel")
 					}
 				).appendTo(action).button({
 						text: false,
@@ -1141,9 +1166,9 @@ $(function() {
 					}
 				);
 
-				copymove_yesbutton = $("<button/>", {
-						id: 'fn-albummanager-button-copymove',
-						text: $.message("albummanager-del-yes")
+				$("<button/>", {
+						id: 'fn-albummanager-button-delete',
+						text: _("Delete user")
 					}
 				).appendTo(action).button({
 						text: false,

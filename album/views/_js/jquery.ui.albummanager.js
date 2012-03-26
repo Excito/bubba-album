@@ -142,7 +142,7 @@ jQuery.widget("ui.albummanager", {
 								   }
 							   );
 							   var parent_albums = data.parent_albums.slice();
-							   parent_albums.unshift( { 'id': null, 'name': 'Home' } );
+							   parent_albums.unshift( { 'id': null, 'name': _("Home") } );
 
 							   jQuery.each( parent_albums, function(index, value) {
 									   if(index != 0){
@@ -239,15 +239,15 @@ jQuery.widget("ui.albummanager", {
 
 					   /*
 					   $('.ui-album-title', infobox).html(
-							   "<span class='ui-albummanager-album-name'>"+$.message("ui-albummanager-album-name")+":</span> " + self.current.name
+							   "<span class='ui-albummanager-album-name'>"+_("Album name")+":</span> " + self.current.name
 					   		);
 					   */
 					   if(self.current.name) {
-						   $("#fn-albummanager-image-header-albumname").text($.message("ui-albummangaer-images-in-album") + " '" + self.current.name +"'");
+						   $("#fn-albummanager-image-header-albumname").text(_("in") + " '" + self.current.name +"'");
 					   }
 					   if( self.current.caption ) {
 						   $('.ui-album-caption', infobox).html(
-								   "<span class='ui-albummanager-album-caption'>"+$.message("ui-albummanager-album-caption")+":</span> " + self.current.caption.replace( /\n/g , "<br/>" )
+								   "<span class='ui-albummanager-album-caption'>"+_("Description")+":</span> " + self.current.caption.replace( /\n/g , "<br/>" )
 						   );
 					   } else {
 						   $('.ui-album-caption', infobox).empty();
@@ -280,9 +280,9 @@ jQuery.widget("ui.albummanager", {
 				   cell.find(".ui-album-title").html(data.name);
 				   cell.find(".ui-album-caption").html(data.caption);
 				   if( data.subalbum_count ) {
-					   cell.find(".ui-album-count").html($.message("album-image-subalbum-count", data.image_count, data.subalbum_count));
+					   cell.find(".ui-album-count").html($.sprintf(_("%d images and %d sub-albums"), data.image_count, data.subalbum_count));
 				   } else {
-					   cell.find(".ui-album-count").html($.message("album-image-count", data.image_count));
+					   cell.find(".ui-album-count").html($.sprintf(_("%d images"), data.image_count));
 				   }
 				   jQuery('td:eq(0)',nRow).html( cell );
 				   if( data.created == '0000-00-00 00:00:00' ) {

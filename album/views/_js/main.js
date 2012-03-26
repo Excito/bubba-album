@@ -61,25 +61,7 @@ function cursor_ready() {
 			div.dialog( options );
 			return div;
 		};
-/*
- * Usage:
- * $.confirm( 
- * 		message, // html message to be shown
- *		"<?=t("Title")?>", {
- *		 // button label : callback,
- *			<?=t('button_label_continue')?>: function() { // continue button
- *				$(this).dialog('close');
- *				// continue execution here
- *			},
- *			<?=t('button_label_cancel')?>: function() { // cancel button
- *				$(this).dialog('close');
- * 				// eventual cancel logic heoverride_re
- *			}
- *			 // , ... more buttons if wanted
- *		}
- *	);
- *
- */
+
 		$.confirm = function( message, header, buttons, override_options ) {
 			if(!buttons) {
 				buttons = {

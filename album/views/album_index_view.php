@@ -14,11 +14,11 @@
 
 		<tr class=
 			"ui-state-default ui-widget-header ui-albummanager-header">
-			<th><?=t('Albums')?></th>
+			<th><?=_("Albums")?></th>
 
-			<th><?=t('Created')?></th>
+			<th><?=_("Created")?></th>
 
-			<th><?=t('Modified')?></th>
+			<th><?=_("Modified")?></th>
 
 			<th></th>
 		</tr>
@@ -30,7 +30,7 @@
 		<tr>
 			<td colspan="4" class=
 				"ui-helper-hidden ui-albummanager-permission-denied">
-				<?=t("Permission denied")?>
+				<?=_("Permission denied")?>
 			</td>
 		</tr>
 	</thead>
@@ -40,7 +40,7 @@
 	<tfoot>
 		<tr class=
 			"ui-state-default ui-widget-header ui-albummanager-header">
-			<th colspan="4"><?=t("Images")?> <span id="fn-albummanager-image-header-albumname"></span></th>
+			<th colspan="4"><?=_("Images")?> <span id="fn-albummanager-image-header-albumname"></span></th>
 		</tr>
 		<tr id="fn-album-infobox">
 			<td>
@@ -82,19 +82,19 @@
 
 	<div id="fn-albummanager-create-dialog">
 		<h2 class="ui-text-center">
-			<?=t('albummanager-create-dialog-title')?>
+			<?=_("Create album")?>
 		</h2>
 
 		<form id="fn-albummanager-create">
 			<div class="ui-form-wrapper">
 				<div id="fn-albummanager-create-form-step-1" class="step">
-					<h3><?=t('albummanager-create-dialog-step1-title')?>
+					<h3><?=_("Album name and description")?>
 					</h3>
 
 					<table>
 						<tr>
 							<td><label for="fn-albummanager-create-name">
-									<?=t('albummanager-label-name')?>
+									<?=_("Name")?>
 									:</label> <input type="text" id=
 								"fn-albummanager-create-name" name="name" class=
 								"ui-input-text fn-primary-field" value=
@@ -103,7 +103,7 @@
 
 						<tr>
 							<td><label for="fn-albummanager-create-caption">
-									<?=t('albummanager-label-caption')?>
+									<?=_("Description")?>
 									:</label> 
 								<textarea id="fn-albummanager-create-caption" name="caption" class="ui-input-text"></textarea>
 							</td>
@@ -112,12 +112,12 @@
 				</div>
 
 				<div id="fn-albummanager-create-form-step-2" class="step">
-					<h3><?=t('albummanager-create-dialog-step2-title')?>
+					<h3><?=_("Album access rights")?>
 					</h3>
 					<table><tr><td>
 						<div>
 							<label for="fn-albummanager-create-public">
-								<?=t('albummanager-label-public')?>
+								<?=_("Allow anonymous access")?>
 								:</label> <input type="checkbox" id=
 							"fn-albummanager-create-public" name="public" class=
 							"slide" />
@@ -130,7 +130,7 @@
 										"ui-state-default ui-widget-header ui-albummanager-header">
 										<td></td>
 	
-										<td>Access allowed</td>
+										<td><?=_("Access allowed")?></td>
 									</tr>
 								</thead>
 								<tbody>
@@ -138,13 +138,13 @@
 							</table>
 						</div>
 						<hr></hr>
-						<button class="ui-button ui-state-default ui-corner-all ui-button-text-only" id="fn-albummanager-create-form-step-button-branch-adduser" type="button" value="fn-albummanager-create-form-step-offstep-adduser"><?=t('albummanager-create-dialog-manage-users')?></button>
+						<button class="ui-button ui-state-default ui-corner-all ui-button-text-only" id="fn-albummanager-create-form-step-button-branch-adduser" type="button" value="fn-albummanager-create-form-step-offstep-adduser"><?=_("Manage album users")?></button>
 					</td></tr></table>
 						
 				</div>
 
 				<div id="fn-albummanager-create-form-step-3" class="step submit_step">
-					<h3><?=t('albummanager-create-dialog-step3-title')?>
+					<h3><?=_("Select images/folders to be included in the album")?>
 					</h3>
 
 					<div class="fn-placeholder-filemanager"></div>
@@ -154,18 +154,18 @@
 	</div>
 
 	<div id="fn-albummanager-delete-dialog">
-		<h2><?=t('albummanager-delete-dialog-message')?>
+		<h2><?=_("Delete selected images/albums?")?>
 		</h2>
 	</div>
 
 	<div id="fn-albummanager-modify-dialog">
-		<h2><?=t('albummanager-modify-dialog-message')?>
+		<h2><?=_("Modify name and caption")?>
 		</h2>
 
 		<table>
 			<tr>
 				<td><label for="fn-albummanager-modify-name">
-						<?=t('albummanager-label-name')?>
+						<?=_("Name")?>
 						:</label> <input type="text" id=
 					"fn-albummanager-modify-name" name="name" class=
 					"ui-input-text fn-primary-field" value="New album" /></td>
@@ -173,7 +173,7 @@
 
 			<tr>
 				<td><label for="fn-albummanager-modify-caption">
-						<?=t('albummanager-label-caption')?>
+						<?=_("Description")?>
 						:</label> 
 					<textarea id="fn-albummanager-modify-caption" name=
 						"caption" class="ui-input-text">
@@ -183,7 +183,7 @@
 	</div>
 
 	<div id="fn-albummanager-perm-dialog" class="step">
-		<h2><?=t('albummanager-perm-dialog-title')?>
+		<h2><?=_("Album permissions")?>
 		</h2>
 
 		<table class="ui-table-outline ui-album-perm-public">
@@ -192,7 +192,7 @@
 				<td>
 				<div>
 					<label for="fn-albummanager-perm-public">
-						<?=t('albummanager-label-public')?>
+						<?=_("Allow anonymous access")?>
 						:</label>
 					</td>
 					<td>
@@ -205,7 +205,7 @@
 
 				<div>
 					<label for="fn-albummanager-perm-recursive">
-						<?=t('albummanager-label-recursive')?>
+						<?=_("Apply changes recursively")?>
 						:</label>
 							</td>
 							<td>
@@ -221,9 +221,9 @@
 				<thead>
 					<tr class=
 						"ui-state-default ui-widget-header ui-albummanager-header">
-						<td>User</td>
+						<td><?=_("User")?></td>
 
-						<td>Access allowed</td>
+						<td><?=_("Access allowed")?></td>
 					</tr>
 				</thead>
 				<tbody>
@@ -233,25 +233,25 @@
 	</div>
 
 	<div id="fn-albummanager-users-dialog">
-		<h2><?=t('albummanager-users-dialog-title')?>
+		<h2><?=_("Manage album users")?>
 		</h2>
 
 		<div class=
 			"ui-albummanager-buttonbar-wrapper ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix ui-albummanager-buttonbar ui-albummanager-subbuttonbar"
 			id="fn-albummanager-users-dialog-buttons">
 			<button id="fn-albummanager-users-dialog-button-add" disabled="disabled"><?=
-				t('albummanager-users-dialog-button-add')
+				_("Add user")
 			?></button><button id="fn-albummanager-users-dialog-button-edit" disabled="disabled"><?=
-				t('albummanager-users-dialog-button-edit')
+				_("Edit user")
 			?></button><button id="fn-albummanager-users-dialog-button-delete" disabled="disabled"><?=
-				t('albummanager-users-dialog-button-delete')
+				_("Delete user")
 			?></button>
 		</div>
 
 		<table class="ui-table-outline ui-album-usertable">
 			<thead>
 				<tr class="ui-state-default ui-widget-header ui-albummanager-header">
-					<td><?=t('albummanager-users-table-header')?></td>
+					<td><?=_("Album users")?></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -260,7 +260,7 @@
 	</div>
 
 	<div id="fn-albummanager-add-dialog">
-		<h2><?=t('albummanager-add-dialog-message')?>
+		<h2><?=_("Select directories and images to add to current album")?>
 		</h2>
 
 		<div class="fn-placeholder-filemanager"></div>
@@ -270,7 +270,7 @@
 
 		<div class="ui-helper-inline">
 			<label for="fn-albummanager-users-edit-username">
-				<?=t('albummanager-users-label-username')?>
+				<?=_("Username")?>
 			</label>
 			<br/>
 			<input id="fn-albummanager-users-edit-username" type=
@@ -281,7 +281,7 @@
 
 		<div class="ui-helper-inline">
 			<label for="fn-albummanager-users-edit-realname">
-				<?=t('albummanager-users-label-realname')?>
+				<?=_("Name")?>
 			</label>
 			<br/>
 			<input id="fn-albummanager-users-edit-realname" type=
@@ -290,7 +290,7 @@
 
 		<div class="ui-helper-inline">
 			<label for="fn-albummanager-users-edit-password1">
-				<?=t('albummanager-users-label-password1')?>
+				<?=_("Password")?>
 			</label>
 			<br/>
 			<input id="fn-albummanager-users-edit-password1"
@@ -300,7 +300,7 @@
 
 		<div class="ui-helper-inline">
 			<label for="fn-albummanager-users-edit-password2">
-				<?=t('albummanager-users-label-password2')?>
+				<?=_("Confirm")?>
 			</label>
 			<br/>
 			<input id="fn-albummanager-users-edit-password2"
@@ -319,7 +319,7 @@
 
 		<div class="ui-helper-inline">
 			<label for="fn-albummanager-users-add-username">
-				<?=t('albummanager-users-label-username')?>
+				<?=_("Username")?>
 			</label>
 			<br/>
 			<input id="fn-albummanager-users-add-username" type=
@@ -328,7 +328,7 @@
 
 		<div class="ui-helper-inline">
 			<label for="fn-albummanager-users-add-realname">
-				<?=t('albummanager-users-label-realname')?>
+				<?=_("Name")?>
 			</label>
 			<br/>
 			<input id="fn-albummanager-users-add-realname" type=
@@ -337,7 +337,7 @@
 
 		<div class="ui-helper-inline">
 			<label for="fn-albummanager-users-add-password1">
-				<?=t('albummanager-users-label-password1')?>
+				<?=_("Password")?>
 			</label>
 			<br/>
 			<input id="fn-albummanager-users-add-password1"
@@ -347,7 +347,7 @@
 
 		<div class="ui-helper-inline">
 			<label for="fn-albummanager-users-add-password2">
-				<?=t('albummanager-users-label-password2')?>
+				<?=_("Confirm")?>
 			</label>
 			<br/>
 			<input id="fn-albummanager-users-add-password2"
@@ -368,11 +368,11 @@
 			<tr class="ui-state-default ui-widget-header">
 				<th></th>
 
-				<th>Name</th>
+				<th><?=_("Name")?></th>
 
-				<th>Date</th>
+				<th><?=_("Date")?></th>
 
-				<th>Size</th>
+				<th><?=_("Size")?></th>
 
 				<th></th>
 			</tr>
@@ -384,7 +384,7 @@
 			<tr>
 				<td colspan="5" class=
 					"ui-helper-hidden ui-filemanager-permission-denied">
-					<?=t("Permission denied")?>
+					<?=_("Permission denied")?>
 				</td>
 			</tr>
 		</thead>

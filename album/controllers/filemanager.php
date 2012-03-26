@@ -2,8 +2,6 @@
 class Filemanager extends Controller {
 	function __construct() {
 		parent::Controller();
-		$this->load->helper('i18n');
-		load_lang('en');
 	}
 	function json() {
 			$this->load->model('admin');

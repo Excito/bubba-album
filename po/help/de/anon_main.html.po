@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bubba-album 2.3\n"
+"Report-Msgid-Bugs-To: info@excito.com\n"
+"POT-Creation-Date: 2012-03-29 13:37+0300\n"
+"PO-Revision-Date: 2012-03-29 13:45+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. type: Content of: <h3>
+#: album/views/help/en/anon_main.html:1 album/views/help/en/user_main.html:1
+msgid "Viewing photos"
+msgstr "Bilder anzeigen"
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/anon_main.html:3 album/views/help/en/user_main.html:3
+msgid "To enter an album double click it or click the arrow to the right on the page."
+msgstr "Zum Öffnen eines Albums dieses doppelklicken oder den Pfeil rechts auf der Seite klicken."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/anon_main.html:5 album/views/help/en/user_main.html:5
+msgid "Click a picture to view it and click 'Slide show' for automatic picture browsing."
+msgstr "Ein Bild klicken, um es anzuzeigen und 'Diashow' für automatischen Bilddurchlauf klicken."
+
+#. type: Content of: <h3>
+#: album/views/help/en/anon_main.html:8
+msgid "Log in to..."
+msgstr "Anmelden in..."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/anon_main.html:10
+msgid "View private photo albums."
+msgstr "Private Fotoalben anzeigen."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/anon_main.html:11
+msgid "Create photo albums."
+msgstr "Fotoalben erstellen."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/anon_main.html:12
+msgid "Edit photo albums."
+msgstr "Fotoalben bearbeiten."
+
+#. type: Content of: <p>
+#: album/views/help/en/anon_main.html:14
+msgid "{PLATFORM} users (not administrator) may log in and create albums and create album users. Album users may log in and view albums."
+msgstr "{PLATFORM} Benutzer (nicht Administrator) dürfen sich anmelden und Alben erstellen und Albumbenutzer erstellen. Albumbenutzer dürfen sich anmelden und Alben anzeigen."

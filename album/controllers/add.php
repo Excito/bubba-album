@@ -2,8 +2,6 @@
 class Add extends Controller {
         function __construct() {
                 parent::Controller();
-                $this->load->helper('i18n');
-                load_lang('en');
 		}
 		private function _fixpath($path) {
 			$path = preg_replace("#(^|\/)\.\.?(\/|$)#", '/', $path);

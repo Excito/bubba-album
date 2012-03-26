@@ -1,0 +1,221 @@
+# Swedish translations for bubba-album package.
+# Copyright (C) 2012 Excito Electronics AB
+# This file is distributed under the same license as the bubba-album package.
+# Automatically generated, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bubba-album 2.3\n"
+"Report-Msgid-Bugs-To: info@excito.com\n"
+"POT-Creation-Date: 2012-03-28 13:44+0300\n"
+"PO-Revision-Date: 2012-03-29 13:04+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: album/views/album_index_view.php:133
+#: album/views/album_index_view.php:226
+msgid "Access allowed"
+msgstr ""
+
+#: album/views/album_layout.php:288
+msgid "Access denied"
+msgstr "Åtkomst nekad"
+
+#: album/views/album_layout.php:365
+#, php-format
+msgid "Access not granted for user '%s'"
+msgstr "Åtkomst nekad för '%s'"
+
+#: album/views/album_index_view.php:243
+msgid "Add user"
+msgstr "Lägg till användare"
+
+#: album/views/album_layout.php:293
+msgid "Administration"
+msgstr ""
+
+#: album/views/album_index_view.php:115
+msgid "Album access rights"
+msgstr "Åtkomsträttigheter för album"
+
+#: album/views/album_index_view.php:91
+msgid "Album name and description"
+msgstr "Albumnamn och beskrivning"
+
+#: album/views/album_index_view.php:186
+msgid "Album permissions"
+msgstr "Albumrättigheter"
+
+#: album/views/album_index_view.php:254
+msgid "Album users"
+msgstr "Albumanvändare"
+
+#: album/views/album_index_view.php:17
+msgid "Albums"
+msgstr "Album"
+
+#: album/views/album_index_view.php:120
+#: album/views/album_index_view.php:195
+msgid "Allow anonymous access"
+msgstr "Tillåt anonym åtkomst"
+
+#: album/views/album_index_view.php:208
+msgid "Apply changes recursively"
+msgstr "Anta ändringar rekursivt"
+
+#: album/views/album_layout.php:376
+msgid "B3 Manual"
+msgstr "B3 Användarmanual"
+
+#: album/views/album_layout.php:306
+msgid "B3 start page"
+msgstr ""
+
+#: album/views/album_index_view.php:303
+#: album/views/album_index_view.php:350
+msgid "Confirm"
+msgstr "Bekräfta"
+
+#: album/views/album_index_view.php:85
+msgid "Create album"
+msgstr "Create album"
+
+#: album/views/album_index_view.php:19
+msgid "Created"
+msgstr ""
+
+#: album/views/album_index_view.php:373
+msgid "Date"
+msgstr ""
+
+#: album/views/album_index_view.php:157
+msgid "Delete selected images/albums?"
+msgstr "Radera valda album/bilder?"
+
+#: album/views/album_index_view.php:247
+msgid "Delete user"
+msgstr "Ta bort användare"
+
+#: album/views/album_index_view.php:106
+#: album/views/album_index_view.php:176
+msgid "Description"
+msgstr "Beskrivning"
+
+#: album/views/album_index_view.php:245
+msgid "Edit user"
+msgstr "Ändra användare"
+
+#: album/views/album_layout.php:378
+msgid "Excito web site"
+msgstr "Excitos webbsida"
+
+#: album/views/album_layout.php:309
+msgid "Excito"
+msgstr ""
+
+#: album/views/album_layout.php:377
+msgid "Forum"
+msgstr "Forum"
+
+#: album/views/album_layout.php:294
+msgid "Help"
+msgstr "Hjälp"
+
+#: album/views/album_layout.php:292
+msgid "Home"
+msgstr "Hem"
+
+#: album/views/album_index_view.php:43
+msgid "Images"
+msgstr ""
+
+#: album/views/album_layout.php:362
+msgid "Invalid user/password combination"
+msgstr "Ogiltigt användarnamn eller lösenord"
+
+#: album/views/album_layout.php:282
+#, php-format
+msgid "Logged in as '%s'"
+msgstr "Inloggad som '%s'"
+
+#: album/views/album_layout.php:278
+#, php-format
+msgid "Logged in as B3 user '%s'"
+msgstr "Inloggad som B3-användare '%s'"
+
+#: album/views/album_layout.php:335
+msgid "Login required"
+msgstr "Inloggning krävs"
+
+#: album/views/album_layout.php:291
+msgid "Logout"
+msgstr "Logga ut"
+
+#: album/views/album_index_view.php:141
+#: album/views/album_index_view.php:236
+msgid "Manage album users"
+msgstr "Hantera albumanvändare"
+
+#: album/views/album_index_view.php:21
+msgid "Modified"
+msgstr ""
+
+#: album/views/album_index_view.php:162
+msgid "Modify name and caption"
+msgstr "Ändra namn och text"
+
+#: album/views/album_index_view.php:97
+#: album/views/album_index_view.php:168
+#: album/views/album_index_view.php:284
+#: album/views/album_index_view.php:331
+#: album/views/album_index_view.php:371
+msgid "Name"
+msgstr "Namn"
+
+#: album/views/album_index_view.php:293
+#: album/views/album_index_view.php:340
+#: album/views/album_layout.php:350
+msgid "Password"
+msgstr "Lösenord"
+
+#: album/views/album_index_view.php:33
+#: album/views/album_index_view.php:387
+msgid "Permission denied"
+msgstr ""
+
+#: album/views/album_index_view.php:263
+msgid "Select directories and images to add to current album"
+msgstr "Välj kataloger eller bilder för att lägga till markerat album"
+
+#: album/views/album_index_view.php:147
+msgid "Select images/folders to be included in the album"
+msgstr "Välj foton / kataloger att inkludera i albumet"
+
+#: album/views/album_index_view.php:375
+msgid "Size"
+msgstr ""
+
+#: album/views/album_index_view.php:224
+msgid "User"
+msgstr "Användare"
+
+#: album/views/album_index_view.php:273
+#: album/views/album_index_view.php:322
+#: album/views/album_layout.php:339
+msgid "Username"
+msgstr "Användarnamn"
+
+#: album/views/album_layout.php:285
+msgid "Viewing album anonymously"
+msgstr "Tittar på album anonymt"
+
+#: album/views/album_layout.php:280
+#, php-format
+msgid "Viewing album as '%s'"
+msgstr "Tittar på album inloggad som '%s'"
+

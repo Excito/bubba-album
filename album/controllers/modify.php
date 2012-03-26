@@ -2,8 +2,6 @@
 class Modify extends Controller {
         function __construct() {
                 parent::Controller();
-                $this->load->helper('i18n');
-                load_lang('en');
 		}
 		public function json() {
 			$this->load->model('admin');

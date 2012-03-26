@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bubba-album 2.3\n"
+"Report-Msgid-Bugs-To: info@excito.com\n"
+"POT-Creation-Date: 2012-03-28 13:54+0300\n"
+"PO-Revision-Date: 2012-03-29 11:19+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. type: Content of: <h3>
+#: album/views/help/en/manager_main.html:1
+msgid "Menu items"
+msgstr "Menüelemente"
+
+#. type: Content of: <p>
+#: album/views/help/en/manager_main.html:2
+msgid "Observe that you have to highlight an album or a photo for some menu items to be selectable."
+msgstr "Bitte beachten Sie, dass Sie ein Album oder Bild hervorheben müssen, sodass bestimmte Menüelemente verfügbar sind."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/manager_main.html:5
+msgid "<strong>Create album</strong> - Add a new album. Before creating an album your photos must be located in your storage/pictures catalog."
+msgstr "<strong>Album erstellen</strong> - Ein neues Album hinzufügen.  Bevor Sie ein Album erstellen, müssen Ihre Bilder sich in Ihrem Speicher/Bilderkatalog befinden."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/manager_main.html:8
+msgid "<strong>Add images</strong> - Add images into the album you are currantly located in."
+msgstr "<strong>Bilder hinzufügen</strong> - Bilder an das Album hinzufügen, in dem Sie sich zurzeit befinden."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/manager_main.html:10
+msgid "<strong>Move</strong> - Move an album or photos. Highlight one or more items, click Move, browse to the desired destination and confirm the move with the Yes button."
+msgstr "<strong>Verschieben</strong> - Ein Album oder Bilder verschieben. Einen oder mehr Artikel auswählen, Verschieben klicken, das gewünschte Ziel aussuchen und das Verschieben mit der Schaltfläche Ja bestätigen."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/manager_main.html:13
+msgid "<strong>Rename</strong> - Rename or edit the description for an item."
+msgstr "<strong>Umbenennen</strong> - Die Beschreibung für einen Artikel umbenennen oder bearbeiten."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/manager_main.html:15
+msgid "<strong>Permissions</strong> - Edit album permissions. Decide who should be able to see your photo album. Set different permissions for different albums. To leave an album open for everyone to see, choose 'Allow anonymous access'. You may edit permissions for albums recursively (sub albums will gain the same permissions as the selected album)."
+msgstr "<strong>Berechtigungen</strong> - Albumrechte bearbeiten.  Entscheiden Sie, wer Ihr Fotoalbum sehen darf. Stellen Sie verschiedene Berechtigungen für unterschiedliche Alben ein. Wählen Sie 'Anonymen Zugriff erlauben' aus, um das Album für jeden zugänglich zu machen. Sie können Berechtigungen für Alben rekursiv bearbeiten (Sub-Alben werden die gleichen Berechtigungen wie das ausgewählte Album erhalten)."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/manager_main.html:21
+msgid "<strong>Manage users</strong> - Create and edit 'Album users'.  'Album users' only has permission to view albums, not log into B3 itself. Tip! Create different 'Album users' with access to different albums..."
+msgstr "<strong>Benutzer bearbeiten</strong> - 'Albumbenutzer' erstellen und bearbeiten. 'Albumbenutzer' haben nur die Erlaubnis Alben zu sehen, nicht aber sich selbst in B3 anzumelden. Tipp! Erstellen Sie unterschiedliche 'Albumbenutzer' mit Zugriff zu verschiedenen Alben..."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/manager_main.html:25
+msgid "<strong>Delete</strong> - Delete albums or photos. The photos will not be deleted from B3, only from the album."
+msgstr "<strong>Löschen</strong> - Alben oder Bilder löschen. Die Bilder werden nicht aus B3 gelöscht, sondern nur aus dem Album."

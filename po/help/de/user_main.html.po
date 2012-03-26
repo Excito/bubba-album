@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bubba-album 2.3\n"
+"Report-Msgid-Bugs-To: info@excito.com\n"
+"POT-Creation-Date: 2012-03-28 13:54+0300\n"
+"PO-Revision-Date: 2012-03-29 11:19+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. type: Content of: <h3>
+#: album/views/help/en/anon_main.html:1 album/views/help/en/user_main.html:1
+msgid "Viewing photos"
+msgstr "Bilder anzeigen"
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/anon_main.html:3 album/views/help/en/user_main.html:3
+msgid "To enter an album double click it or click the arrow to the right on the page."
+msgstr "Zum Öffnen eines Albums dieses doppelklicken oder den Pfeil rechts auf der Seite klicken."
+
+#. type: Content of: <ul><li>
+#: album/views/help/en/anon_main.html:5 album/views/help/en/user_main.html:5
+msgid "Click a picture to view it and click 'Slide show' for automatic picture browsing."
+msgstr "Ein Bild klicken, um es anzuzeigen und 'Diashow' für automatischen Bilddurchlauf klicken."
+
+#. type: Content of: <h3>
+#: album/views/help/en/user_main.html:8
+msgid "Managing photos"
+msgstr "Bilder verwalten"
+
+#. type: Content of: <p>
+#: album/views/help/en/user_main.html:9
+msgid "Click on the button with a wrench symbol to enter 'Manager mode'. You have to be logged in as your standard B3 user (not as administrator) to add and edit albums."
+msgstr "Die Schaltfläche mit einem Schraubenschlüssel-Symbol klicken, um den 'Managermodus' zu aktivieren. Sie müssen als Standard-B3-Benutzer angemeldet sein (nicht als Administrator), um Alben hinzuzufügen und zu bearbeiten."

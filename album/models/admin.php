@@ -79,20 +79,75 @@ class Admin extends Model {
 		return null;
 	}
 
+	static private $language = null;
+
 	public function get_language() {
+		if(!is_null(self::$language)) {
+			return self::$language;
+		}
+
+		self::$language = "en";
 		$req = new HTTP_Request("http://localhost/admin/ajax_session/get_language");
 		$req->setMethod(HTTP_REQUEST_METHOD_GET);
 		$req->addCookie("PHPSESSID", $this->session_id);
 		$response = $req->sendRequest();
-		if (PEAR::isError($response)) {
-			return null;
-		} else {
+		if (!PEAR::isError($response)) {
 			$my_lang = json_decode($req->getResponseBody(), true);
-			return $my_lang['language'];
+			self::$language = $my_lang['language'];
 		}
-		return null;
+		return self::$language;
 	}
+
+	static private $locale = null;
 	
+	public function get_locale() {
+		if(!is_null(self::$locale)) {
+			return self::$locale;
+		}
+		self::$locale = "en_US";
+		$req = new HTTP_Request("http://localhost/admin/ajax_session/get_locale");
+		$req->setMethod(HTTP_REQUEST_METHOD_GET);
+		$req->addCookie("PHPSESSID", $this->session_id);
+		$response = $req->sendRequest();
+		if (!PEAR::isError($response)) {
+			$my_lang = json_decode($req->getResponseBody(), true);
+			self::$locale = $my_lang['locale'];
+		}
+		return self::$locale;
+	}
+
+	static private $platform = null;
+
+    public function get_platform() {
+		if(!is_null(self::$platform)) {
+			return self::$platform;
+		}
+		self::$platform = "N/A";
+		$req = new HTTP_Request("http://localhost/admin/ajax_status/hardware");
+		$req->setMethod(HTTP_REQUEST_METHOD_GET);
+		$req->addCookie("PHPSESSID", $this->session_id);
+		$response = $req->sendRequest();
+		if (!PEAR::isError($response)) {
+			$my_lang = json_decode($req->getResponseBody(), true);
+            switch($my_lang['hwtype']) {
+            case "10":
+                self::$platform = "Bubba";
+                break;
+            case "20":
+                self::$platform = "Bubba|2";
+                break;
+            case "30":
+                self::$platform = "B3";
+                break;
+            default:
+                self::$platform = "unknown";
+                break;
+            }
+		}
+		return self::$platform;
+        
+    }
+
 	public function get_userinfo( $force = false ) {
 		if( $force ) {
 			$session_id = $force;

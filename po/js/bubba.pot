@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Excito Electronics AB
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bubba-album 2.3\n"
+"Report-Msgid-Bugs-To: info@excito.com\n"
+"POT-Creation-Date: 2012-03-29 15:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: album/views/_js/album_main.js:35
+msgid "View original"
+msgstr ""
+
+#: album/views/_js/album_main.js:37
+msgid "Download original"
+msgstr ""
+
+#: album/views/_js/album_main.js:55 album/views/_js/album_main.js:243
+#: album/views/_js/album_main.js:629 album/views/_js/album_main.js:644
+#: album/views/_js/album_main.js:674
+msgid "Next"
+msgstr ""
+
+#: album/views/_js/album_main.js:56 album/views/_js/album_main.js:630
+#: album/views/_js/album_main.js:645 album/views/_js/album_main.js:675
+msgid "Close"
+msgstr ""
+
+#: album/views/_js/album_main.js:57 album/views/_js/album_main.js:631
+#: album/views/_js/album_main.js:646 album/views/_js/album_main.js:676
+msgid "Previous"
+msgstr ""
+
+#: album/views/_js/album_main.js:58 album/views/_js/album_main.js:632
+#: album/views/_js/album_main.js:647 album/views/_js/album_main.js:677
+msgid "Start slideshow"
+msgstr ""
+
+#: album/views/_js/album_main.js:59 album/views/_js/album_main.js:633
+#: album/views/_js/album_main.js:648 album/views/_js/album_main.js:678
+msgid "Stop slideshow"
+msgstr ""
+
+#: album/views/_js/album_main.js:60 album/views/_js/album_main.js:634
+#: album/views/_js/album_main.js:649 album/views/_js/album_main.js:679
+msgid "Image \\{current\\} of \\{total\\}"
+msgstr ""
+
+#: album/views/_js/album_main.js:107
+msgid "No"
+msgstr ""
+
+#: album/views/_js/album_main.js:132
+msgid "Yes"
+msgstr ""
+
+#: album/views/_js/album_main.js:193
+#, javascript-format
+msgid "Select destination to move %d albums and %d images"
+msgstr ""
+
+#: album/views/_js/album_main.js:249
+msgid "Back"
+msgstr ""
+
+#: album/views/_js/album_main.js:292 album/views/_js/album_main.js:1094
+#, javascript-format
+msgid "%s (%s)"
+msgstr ""
+
+#: album/views/_js/album_main.js:476 album/views/_js/album_main.js:911
+msgid "Create album"
+msgstr ""
+
+#: album/views/_js/album_main.js:503
+msgid "Add images"
+msgstr ""
+
+#: album/views/_js/album_main.js:524
+msgid "Move"
+msgstr ""
+
+#: album/views/_js/album_main.js:541
+msgid "Rename"
+msgstr ""
+
+#: album/views/_js/album_main.js:558
+msgid "Permissions"
+msgstr ""
+
+#: album/views/_js/album_main.js:576
+msgid "Manage users"
+msgstr ""
+
+#: album/views/_js/album_main.js:593
+msgid "Delete"
+msgstr ""
+
+#: album/views/_js/album_main.js:609
+msgid "Manager mode"
+msgstr ""
+
+#: album/views/_js/album_main.js:621
+msgid "Run slideshow"
+msgstr ""
+
+#: album/views/_js/album_main.js:803
+msgctxt "dialog button label"
+msgid "Delete"
+msgstr ""
+
+#: album/views/_js/album_main.js:806
+msgctxt "dialog button label"
+msgid "Create"
+msgstr ""
+
+#: album/views/_js/album_main.js:809 album/views/_js/album_main.js:812
+msgctxt "dialog button label"
+msgid "Update"
+msgstr ""
+
+#: album/views/_js/album_main.js:815
+msgctxt "dialog button label"
+msgid "Add"
+msgstr ""
+
+#: album/views/_js/album_main.js:1002 album/views/_js/album_main.js:1087
+#: album/views/_js/album_main.js:1154
+msgid "Cancel"
+msgstr ""
+
+#: album/views/_js/album_main.js:1015
+msgid "Add user"
+msgstr ""
+
+#: album/views/_js/album_main.js:1100
+msgid "Edit user"
+msgstr ""
+
+#: album/views/_js/album_main.js:1150
+#, javascript-format
+msgid "Delete user <strong>%s</strong> (\"%s\")?"
+msgstr ""
+
+#: album/views/_js/album_main.js:1171
+msgid "Delete user"
+msgstr ""
+
+#: album/views/_js/jquery.ui.albummanager.js:145
+msgid "Home"
+msgstr ""
+
+#: album/views/_js/jquery.ui.albummanager.js:246
+msgid "in"
+msgstr ""
+
+#: album/views/_js/jquery.ui.albummanager.js:250
+msgid "Description"
+msgstr ""
+
+#: album/views/_js/jquery.ui.albummanager.js:283
+#, javascript-format
+msgid "%d images and %d sub-albums"
+msgstr ""
+
+#: album/views/_js/jquery.ui.albummanager.js:285
+#, javascript-format
+msgid "%d images"
+msgstr ""

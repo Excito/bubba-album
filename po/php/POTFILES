@@ -1,0 +1,5 @@
+album/controllers/users.php
+
+album/views/album_index_head_view.php
+album/views/album_index_view.php
+album/views/album_layout.php

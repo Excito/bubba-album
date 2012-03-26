@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Excito Electronics AB
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bubba-album 2.3\n"
+"Report-Msgid-Bugs-To: info@excito.com\n"
+"POT-Creation-Date: 2012-03-29 15:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: album/views/album_index_view.php:17
+msgid "Albums"
+msgstr ""
+
+#: album/views/album_index_view.php:19
+msgid "Created"
+msgstr ""
+
+#: album/views/album_index_view.php:21
+msgid "Modified"
+msgstr ""
+
+#: album/views/album_index_view.php:33 album/views/album_index_view.php:387
+msgid "Permission denied"
+msgstr ""
+
+#: album/views/album_index_view.php:43
+msgid "Images"
+msgstr ""
+
+#: album/views/album_index_view.php:85
+msgid "Create album"
+msgstr ""
+
+#: album/views/album_index_view.php:91
+msgid "Album name and description"
+msgstr ""
+
+#: album/views/album_index_view.php:97 album/views/album_index_view.php:168
+#: album/views/album_index_view.php:284 album/views/album_index_view.php:331
+#: album/views/album_index_view.php:371
+msgid "Name"
+msgstr ""
+
+#: album/views/album_index_view.php:106 album/views/album_index_view.php:176
+msgid "Description"
+msgstr ""
+
+#: album/views/album_index_view.php:115
+msgid "Album access rights"
+msgstr ""
+
+#: album/views/album_index_view.php:120 album/views/album_index_view.php:195
+msgid "Allow anonymous access"
+msgstr ""
+
+#: album/views/album_index_view.php:133 album/views/album_index_view.php:226
+msgid "Access allowed"
+msgstr ""
+
+#: album/views/album_index_view.php:141 album/views/album_index_view.php:236
+msgid "Manage album users"
+msgstr ""
+
+#: album/views/album_index_view.php:147
+msgid "Select images/folders to be included in the album"
+msgstr ""
+
+#: album/views/album_index_view.php:157
+msgid "Delete selected images/albums?"
+msgstr ""
+
+#: album/views/album_index_view.php:162
+msgid "Modify name and caption"
+msgstr ""
+
+#: album/views/album_index_view.php:186
+msgid "Album permissions"
+msgstr ""
+
+#: album/views/album_index_view.php:208
+msgid "Apply changes recursively"
+msgstr ""
+
+#: album/views/album_index_view.php:224
+msgid "User"
+msgstr ""
+
+#: album/views/album_index_view.php:243
+msgid "Add user"
+msgstr ""
+
+#: album/views/album_index_view.php:245
+msgid "Edit user"
+msgstr ""
+
+#: album/views/album_index_view.php:247
+msgid "Delete user"
+msgstr ""
+
+#: album/views/album_index_view.php:254
+msgid "Album users"
+msgstr ""
+
+#: album/views/album_index_view.php:263
+msgid "Select directories and images to add to current album"
+msgstr ""
+
+#: album/views/album_index_view.php:273 album/views/album_index_view.php:322
+#: album/views/album_layout.php:347
+msgid "Username"
+msgstr ""
+
+#: album/views/album_index_view.php:293 album/views/album_index_view.php:340
+#: album/views/album_layout.php:358
+msgid "Password"
+msgstr ""
+
+#: album/views/album_index_view.php:303 album/views/album_index_view.php:350
+msgid "Confirm"
+msgstr ""
+
+#: album/views/album_index_view.php:373
+msgid "Date"
+msgstr ""
+
+#: album/views/album_index_view.php:375
+msgid "Size"
+msgstr ""
+
+#: album/views/album_layout.php:286
+#, php-format
+msgid "Logged in as B3 user '%s'"
+msgstr ""
+
+#: album/views/album_layout.php:288
+#, php-format
+msgid "Viewing album as '%s'"
+msgstr ""
+
+#: album/views/album_layout.php:290
+#, php-format
+msgid "Logged in as '%s'"
+msgstr ""
+
+#: album/views/album_layout.php:293
+msgid "Viewing album anonymously"
+msgstr ""
+
+#: album/views/album_layout.php:296
+msgid "Access denied"
+msgstr ""
+
+#: album/views/album_layout.php:299
+msgid "Logout"
+msgstr ""
+
+#: album/views/album_layout.php:300
+msgid "Home"
+msgstr ""
+
+#: album/views/album_layout.php:301
+msgid "Administration"
+msgstr ""
+
+#: album/views/album_layout.php:302
+msgid "Help"
+msgstr ""
+
+#: album/views/album_layout.php:314
+msgid "B3 start page"
+msgstr ""
+
+#: album/views/album_layout.php:317
+msgid "Excito"
+msgstr ""
+
+#: album/views/album_layout.php:318
+msgid "by Excito Sweden"
+msgstr ""
+
+#: album/views/album_layout.php:343
+msgid "Login required"
+msgstr ""
+
+#: album/views/album_layout.php:370
+msgid "Invalid user/password combination"
+msgstr ""
+
+#: album/views/album_layout.php:373
+#, php-format
+msgid "Access not granted for user '%s'"
+msgstr ""
+
+#: album/views/album_layout.php:384
+msgid "B3 Manual"
+msgstr ""
+
+#: album/views/album_layout.php:385
+msgid "Forum"
+msgstr ""
+
+#: album/views/album_layout.php:386
+msgid "Excito web site"
+msgstr ""
