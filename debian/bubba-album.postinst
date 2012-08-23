@@ -31,7 +31,7 @@ db_stop
 
 case "$1" in
   configure)
-    if dpkg --compare-versions "$2" lt 2.5.1; then
+    if dpkg --compare-versions "$2" lt 2.5.1.2; then
       perl /usr/share/bubba-album/flush_thumbs.pl || true
     fi
     if [ "$2" = "" ]; then

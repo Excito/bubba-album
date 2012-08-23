@@ -1,3 +1,9 @@
+bubba-album (2.5.1.2) vincent; urgency=low
+
+  * need to update postinst
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 23 Aug 2012 13:07:58 +0200
+
 bubba-album (2.5.1.1) vincent; urgency=low
 
   * bugfix
