@@ -15,9 +15,12 @@ use constant PIDFILE		=> '/tmp/bubba-album.pid';
 use constant THUMB_WIDTH	=> 100;
 use constant THUMB_HEIGHT	=> 100;
 use constant SCALE_WIDTH	=> 600;
+use constant HDTV_WIDTH     => 1920;
+use constant HDTV_HEIGHT    => 1080;
 use constant CACHE_PATH		=> '/var/lib/album/thumbs';
 use constant THUMB_PATH		=> CACHE_PATH . '/thumbs';
 use constant SCALE_PATH		=> CACHE_PATH . '/rescaled';
+use constant HDTV_PATH      => HDTV_PATH . '/hdtv';
 use constant SPOOL_PATH     => '/var/spool/album';
 
 
@@ -26,6 +29,9 @@ unless( -d CACHE_PATH ) {
 }
 unless( -d THUMB_PATH ) {
     mkdir THUMB_PATH;
+}
+unless( -d HDTV_PATH ) {
+    mkdir HDTV_PATH;
 }
 unless( -d SCALE_PATH ) {
     mkdir SCALE_PATH;
@@ -118,6 +124,8 @@ sub process_thumb {
         $x=$p->Read($image);
         $x=$p->Thumbnail( geometry => SCALE_WIDTH."x" );
         $x=$p->Write(SCALE_PATH . "/$id");
+        $x=$p->Thumbnail( geometry => HDTV_WIDTH."x".HDTV_HEIGHT.">" );
+        $x=$p->Write(HDTV_PATH . "/$id");
         $x=$p->Set( Gravity => 'Center' );
         $x=$p->Thumbnail( geometry => THUMB_WIDTH.'x'.THUMB_HEIGHT.'^' );
         $x=$p->Set(background => 'transparent');
@@ -130,6 +138,14 @@ sub process_thumb {
             max( THUMB_HEIGHT, THUMB_WIDTH ) * 2,
             $image,
             THUMB_PATH . "/$id"
+        );
+
+        system(
+            "epeg",
+            '-w '.HDTV_WIDTH, 
+            '-h '.HDTV_HEIGHT, 
+            $image,
+            HDTV_PATH . "/$id"
         );
 
         system(
