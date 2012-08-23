@@ -20,7 +20,7 @@ use constant HDTV_HEIGHT    => 1080;
 use constant CACHE_PATH		=> '/var/lib/album/thumbs';
 use constant THUMB_PATH		=> CACHE_PATH . '/thumbs';
 use constant SCALE_PATH		=> CACHE_PATH . '/rescaled';
-use constant HDTV_PATH      => HDTV_PATH . '/hdtv';
+use constant HDTV_PATH      => CACHE_PATH . '/hdtv';
 use constant SPOOL_PATH     => '/var/spool/album';
 
 
