@@ -30,28 +30,31 @@ db_stop
 
 
 case "$1" in
-	configure)
-        if [ "$2" = "" ]; then
-			mkdir -p /home/storage/pictures
-            ln -sf /usr/share/bubba-album/samples /home/storage/pictures/samples
-        fi
+  configure)
+    if dpkg --compare-versions "$2" lt 2.5.1; then
+      perl /usr/share/bubba-album/flush_thumbs.pl || true
+    fi
+    if [ "$2" = "" ]; then
+      mkdir -p /home/storage/pictures
+      ln -sf /usr/share/bubba-album/samples /home/storage/pictures/samples
+    fi
 
-		install --directory --mode=0755 --owner=www-data --group=www-data /var/spool/album
-		install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album
-		install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album/thumbs
-		install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album/thumbs/rescaled
-		install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album/thumbs/thumbs
+    install --directory --mode=0755 --owner=www-data --group=www-data /var/spool/album
+    install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album
+    install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album/thumbs
+    install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album/thumbs/rescaled
+    install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album/thumbs/thumbs
 
-		invoke-rc.d apache2 reload;
-		;;
+    invoke-rc.d apache2 reload;
+    ;;
 
-	abort-upgrade|abort-remove|abort-deconfigure)
-		;;
+  abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
 
-	*)
-		echo "postinst called with unknown argument \`$1'" >&2
-		exit 1
-		;;
+  *)
+    echo "postinst called with unknown argument \`$1'" >&2
+    exit 1
+    ;;
 esac
 
 # dh_installdeb will replace this with shell code automatically
