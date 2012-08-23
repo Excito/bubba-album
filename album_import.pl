@@ -122,38 +122,50 @@ sub process_thumb {
         my $p = new Image::Magick;
         my $x;
         $x=$p->Read($image);
-        $x=$p->Thumbnail( geometry => SCALE_WIDTH."x" );
-        $x=$p->Write(SCALE_PATH . "/$id");
-        $x=$p->Thumbnail( geometry => HDTV_WIDTH."x".HDTV_HEIGHT.">" );
-        $x=$p->Write(HDTV_PATH . "/$id");
-        $x=$p->Set( Gravity => 'Center' );
-        $x=$p->Thumbnail( geometry => THUMB_WIDTH.'x'.THUMB_HEIGHT.'^' );
-        $x=$p->Set(background => 'transparent');
-        $x=$p->Extent( geometry => THUMB_WIDTH.'x'.THUMB_HEIGHT );
-        $x=$p->Write(THUMB_PATH . "/$id");
+        unless( -f SCALE_PATH . "/$id") { 
+            $x=$p->Thumbnail( geometry => SCALE_WIDTH."x" );
+            $x=$p->Write(SCALE_PATH . "/$id");
+        }
+        unless( -f HDTV_PATH . "/$id") { 
+            $x=$p->Thumbnail( geometry => HDTV_WIDTH."x".HDTV_HEIGHT.">" );
+            $x=$p->Write(HDTV_PATH . "/$id");
+        }
+        unless( -f THUMB_PATH . "/$id") { 
+            $x=$p->Set( Gravity => 'Center' );
+            $x=$p->Thumbnail( geometry => THUMB_WIDTH.'x'.THUMB_HEIGHT.'^' );
+            $x=$p->Set(background => 'transparent');
+            $x=$p->Extent( geometry => THUMB_WIDTH.'x'.THUMB_HEIGHT );
+            $x=$p->Write(THUMB_PATH . "/$id");
+        }
     } elsif( $mimetype eq "image/jpg" || $mimetype eq "image/jpeg" ) {
-        system(
-            "epeg",
-            "-m",
-            max( THUMB_HEIGHT, THUMB_WIDTH ) * 2,
-            $image,
-            THUMB_PATH . "/$id"
-        );
+        unless( -f THUMB_PATH . "/$id") { 
+            system(
+                "epeg",
+                "-m",
+                max( THUMB_HEIGHT, THUMB_WIDTH ) * 2,
+                $image,
+                THUMB_PATH . "/$id"
+            );
+        }
 
-        system(
-            "epeg",
-            '-w '.HDTV_WIDTH, 
-            '-h '.HDTV_HEIGHT, 
-            $image,
-            HDTV_PATH . "/$id"
-        );
+        unless( -f HDTV_PATH . "/$id") { 
+            system(
+                "epeg",
+                '-w '.HDTV_WIDTH, 
+                '-h '.HDTV_HEIGHT, 
+                $image,
+                HDTV_PATH . "/$id"
+            );
+        }
 
-        system(
-            "epeg",
-            "-m ".SCALE_WIDTH,
-            $image,
-            SCALE_PATH . "/$id"
-        );
+        unless( -f SCALE_PATH . "/$id") { 
+            system(
+                "epeg",
+                "-m ".SCALE_WIDTH,
+                $image,
+                SCALE_PATH . "/$id"
+            );
+        }
     }
 }
 
