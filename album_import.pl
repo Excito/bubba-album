@@ -7,7 +7,7 @@ use Image::ExifTool;
 use Image::Magick;
 use File::Basename;
 use File::MimeInfo;
-use List::Util qw(max);
+use List::Util qw(max min);
 use Proc::Daemon;
 use Sys::Syslog qw(:standard :macros);
 
@@ -83,8 +83,8 @@ LOOP: while(1) {
         while(my($id, $image) = each(%queue) ) {
             if($image) {
                 syslog(LOG_INFO, "Processing image %s with id %d", $image, $id);
-                process_exif($id, $image);
-                process_thumb($id, $image);
+                my $info = process_exif($id, $image);
+                process_thumb($id, $image, $info);
             }
             unlink(SPOOL_PATH . '/' . $id);
         }
@@ -111,10 +111,11 @@ sub process_exif {
     my $title = $info->{Title} ? $info->{Title} : basename( $image );
 
     $update_image_table->execute( $title, $info->{Subject}, $id);
+    return $info;
 }
 
 sub process_thumb {
-    my( $id, $image ) = @_;
+    my( $id, $image, $info ) = @_;
 
     my $mimetype = mimetype($image);
 
@@ -148,11 +149,16 @@ sub process_thumb {
             );
         }
 
-        unless( -f HDTV_PATH . "/$id") { 
+        unless( -f HDTV_PATH . "/$id") {
+            my $maximum;
+            if($info->{ImageWidth} > $info->{ImageHeight}) {
+                $maximum = min(HDTV_WIDTH, $info->{ImageWidth});
+            } else {
+                $maximum = min(HDTV_HEIGHT, $info->{ImageHeight});
+            }
             system(
                 "epeg",
-                '-w '.HDTV_WIDTH, 
-                '-h '.HDTV_HEIGHT, 
+                '-m', $maximum,
                 $image,
                 HDTV_PATH . "/$id"
             );
