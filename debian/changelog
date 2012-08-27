@@ -1,3 +1,9 @@
+bubba-album (2.5.1.3) vincent; urgency=low
+
+  * Modifying hdtv rescaling parameters to make aspect ratio better
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 27 Aug 2012 15:27:02 +0200
+
 bubba-album (2.5.1.2) vincent; urgency=low
 
   * need to update postinst
