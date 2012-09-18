@@ -1,3 +1,9 @@
+bubba-album (2.5.1.5) vincent; urgency=low
+
+  * bump to fix deps 
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 18 Sep 2012 14:26:09 +0200
+
 bubba-album (2.5.1.4) vincent; urgency=low
 
   * enforce flush thumbs on all updates
