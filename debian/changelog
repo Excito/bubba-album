@@ -1,3 +1,9 @@
+bubba-album (2.5.1.6) vincent; urgency=low
+
+  * create hdtv thump path owned by www-data
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 20 Sep 2012 16:18:38 +0200
+
 bubba-album (2.5.1.5) vincent; urgency=low
 
   * bump to fix deps 
