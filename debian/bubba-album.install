@@ -1,5 +1,6 @@
 apache.conf /usr/share/bubba-album
 album_import.pl /usr/sbin
+bubba-album-inotifyd /usr/sbin
 flush_thumbs.pl /usr/share/bubba-album
 debian/debian-db.template /usr/share/dbconfig-common/data/bubba-album
 album/* /usr/share/album

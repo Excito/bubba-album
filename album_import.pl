@@ -10,6 +10,8 @@ use File::MimeInfo;
 use List::Util qw(max min);
 use Proc::Daemon;
 use Sys::Syslog qw(:standard :macros);
+use Date::Format;
+use Date::Parse;
 
 use constant PIDFILE		=> '/tmp/bubba-album.pid';
 use constant THUMB_WIDTH	=> 100;
@@ -44,6 +46,7 @@ my $daemon = Proc::Daemon->new(
     pid_file => PIDFILE,
     work_dir => '/'
 );
+exit if $daemon->Status(PIDFILE);
 
 my $kid_pid = $daemon->Init;
 
@@ -69,6 +72,7 @@ my $dbh;
     $dbh->do("SET NAMES UTF8");
 }
 my $update_image_table = $dbh->prepare("UPDATE image SET name=?, caption=? WHERE id=?");
+my $image_set_date = $dbh->prepare("UPDATE image SET created=? WHERE id=? AND created IS NULL");
 
 
 LOOP: while(1) {
@@ -106,11 +110,14 @@ sub process_exif {
         'ImageHeight',
         'Title',
         'Subject',
+        'DateTime'
     );
 
     my $title = $info->{Title} ? $info->{Title} : basename( $image );
+    my $dt = time2str('%Y-%m-%d %X',  $info->{DateTime} ? str2time($info->{DateTime}) : 0 );
 
     $update_image_table->execute( $title, $info->{Subject}, $id);
+    $image_set_date->execute($dt, $id);
     return $info;
 }
 

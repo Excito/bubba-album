@@ -1,0 +1,179 @@
+#!/usr/bin/python
+# Requires Python >= 2.5
+import sys
+import pyinotify
+
+import logging
+import logging.handlers
+
+from configobj import ConfigObj
+import MySQLdb
+from PIL import Image
+import pyexiv2
+from datetime import datetime
+
+import os
+import subprocess
+import psutil
+
+config = ConfigObj("/etc/dbconfig-common/bubba-album.conf")
+
+my_logger = logging.getLogger('MyLogger')
+my_logger.setLevel(logging.DEBUG)
+
+handler = logging.handlers.SysLogHandler(address='/dev/log')
+
+my_logger.addHandler(handler)
+
+
+my_logger.info("using user %s" % config['dbc_dbuser'])
+
+
+class EventHandler(pyinotify.ProcessEvent):
+    def process_IN_CREATE(self, event):
+
+        if event.dir:
+            return
+        db = MySQLdb.connect(passwd=config["dbc_dbpass"], user=config["dbc_dbuser"], db=config["dbc_dbname"])
+        c = db.cursor()
+
+        try:
+            meta = pyexiv2.Image(event.pathname)
+            meta.readMetadata()
+        except IOError as e:
+            my_logger.info(e)
+            return
+        if 'Exif.Image.DateTime' in meta.exifKeys():
+            dt = meta['Exif.Image.DateTime']
+        else:
+            dt = datetime.today()
+
+        d = dt.date()
+
+        year_id = self.set_year(c, db, d)
+
+        month_id = self.set_month(year_id, db, c, d)
+
+        day_id = self.set_day(month_id, db, c, d)
+
+        im = Image.open(event.pathname)
+        (width, height) = im.size
+        c.execute(
+            """INSERT INTO image (path, name, width, height, created, album) VALUES (%s,%s,%s,%s,%s,%s)""",
+            (
+                event.pathname,
+                event.name,
+                width,
+                height,
+                dt.isoformat(),
+                day_id
+            )
+        )
+        db.commit()
+        image_id = c.lastrowid
+        my_logger.info("Added %s (%sx%s) with ID %s" % (event.pathname, width, height, c.lastrowid))
+
+        spool = "/var/spool/album"
+        if os.path.exists(spool) and os.path.isdir(spool):
+            os.symlink(event.pathname, os.path.join(spool, str(image_id)))
+            if os.path.exists('/tmp/bubba-album.pid'):
+                pid = open('/tmp/bubba-album.pid', 'r').read()
+                try:
+                    p = psutil.Process(int(pid))
+                    if not p.is_running():
+                        subprocess.call(['/usr/sbin/album_import.pl'])
+                except psutil.error.NoSuchProcess:
+                        subprocess.call(['/usr/sbin/album_import.pl'])
+
+    def process_IN_DELETE(self, event):
+        if event.dir:
+            return
+
+        db = MySQLdb.connect(passwd=config["dbc_dbpass"], user=config["dbc_dbuser"], db=config["dbc_dbname"])
+        c = db.cursor()
+        c.execute("""SELECT id FROM image WHERE path = %s""", (event.pathname,))
+        ids = [str(i[0]) for i in c.fetchall()]
+        c.execute("""DELETE FROM image WHERE path = %s""", (event.pathname,))
+        db.commit()
+        for id in ids:
+            try:
+                os.unlink(os.path.join('/var/lib/album/thumbs/hdtv', str(id)))
+                my_logger.info("Tailed to remove %s" % (os.path.join('/var/lib/album/thumbs/hdtv', str(id))))
+            except Exception:
+                sys.exc_clear()
+
+            try:
+                os.unlink(os.path.join('/var/lib/album/thumbs/rescaled', str(id)))
+            except Exception:
+                my_logger.info("Tailed to remove %s" % (os.path.join('/var/lib/album/thumbs/thumbs', str(id))))
+                sys.exc_clear()
+
+            try:
+                os.unlink(os.path.join('/var/lib/album/thumbs/thumbs', str(id)))
+            except Exception:
+                my_logger.info("Tailed to remove %s" % (os.path.join('/var/lib/album/thumbs/thumbs', str(id))))
+                sys.exc_clear()
+
+        my_logger.info("Removed %s with ID %s" % (event.pathname, ", ".join(ids)))
+
+    def set_day(self, month_id, database, cursor, date):
+        if cursor.execute("""SELECT id FROM album WHERE name = %s AND parent = %s""", (
+            date.day,
+            month_id
+        )):
+            day_id = cursor.fetchone()[0]
+        else:
+            cursor.execute("""INSERT INTO album (name,parent,caption,path) VALUES (%s,%s,%s,'')""", (
+                date.day,
+                month_id,
+                "Images created on the day %s of the month %s of the year %s" % (date.day, date.month, date.year)
+            ))
+            database.commit()
+            day_id = cursor.lastrowid
+
+        return day_id
+
+    def set_month(self, year_id, database, cursor, date):
+        if cursor.execute("""SELECT id FROM album WHERE name = %s AND parent = %s""", (
+            date.month,
+            year_id
+        )):
+            month_id = cursor.fetchone()[0]
+        else:
+            my_logger.debug("created for month %s for year %s" % (date.month, date.year))
+            cursor.execute("""INSERT INTO album (name,parent,caption,path) VALUES (%s,%s,%s,'')""", (
+                date.month,
+                year_id,
+                "Images created on the month %s of the year %s" % (date.month, date.year)
+            ))
+            database.commit()
+            month_id = cursor.lastrowid
+
+        return month_id
+
+    def set_year(self, cursor, database, date):
+        if cursor.execute("""SELECT id FROM album WHERE name = %s AND parent IS NULL""", (date.year,)):
+            year_id = cursor.fetchone()[0]
+        else:
+            my_logger.debug("created for year %s" % date.year)
+            cursor.execute("""INSERT INTO album (name,caption,path) VALUES (%s,%s,'')""", (
+                date.year,
+                "Images created on the year %s" % date.year
+            ))
+            database.commit()
+            year_id = cursor.lastrowid
+
+        return year_id
+
+wm = pyinotify.WatchManager()
+mask = pyinotify.IN_DELETE | pyinotify.IN_CREATE  # watched events
+path = '/home/storage/pictures'
+
+handler = EventHandler()
+notifier = pyinotify.Notifier(wm, handler, read_freq=4)
+wm.add_watch(path, mask, rec=True, auto_add=True)
+
+try:
+    notifier.loop(daemonize=True)
+except pyinotify.NotifierError, err:
+    print >> sys.stderr, err

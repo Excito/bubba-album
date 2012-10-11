@@ -15,6 +15,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
  libimage-exiftool-perl,
  perlmagick,
  libfile-mimeinfo-perl,
- libproc-daemon-perl (>= 0.14)
+ libproc-daemon-perl (>= 0.14),
+ python-psutil
 Description: The codeigniter based album public interface
  An public album interface for the Bubba album suite
