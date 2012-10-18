@@ -1,3 +1,9 @@
+bubba-album (2.5.1.9) vincent; urgency=low
+
+  * adding misssing depends
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 18 Oct 2012 10:39:48 +0200
+
 bubba-album (2.5.1.8) vincent; urgency=low
 
   * syntax error in database upgrade script
