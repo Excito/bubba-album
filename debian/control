@@ -18,6 +18,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
  libproc-daemon-perl (>= 0.14),
  python-psutil,
  python-pyinotify,
- python-pyexiv2
+ python-pyexiv2,
+ libtimedate-perl
 Description: The codeigniter based album public interface
  An public album interface for the Bubba album suite
