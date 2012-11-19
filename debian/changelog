@@ -1,3 +1,12 @@
+bubba-album (2.5.1.11) unstable; urgency=low
+
+  * need to update the old database
+  * Need to watch for move events as well
+  * executable name too long for proc normally
+  * install thumbs at install so they exists
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 19 Nov 2012 15:16:28 +0100
+
 bubba-album (2.5.1.10) vincent; urgency=low
 
   * adding libtimedate-perl as depends

@@ -43,6 +43,11 @@ case "$1" in
     install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album/thumbs/thumbs
     install --directory --mode=0755 --owner=www-data --group=www-data /var/lib/album/thumbs/hdtv
 
+    if [ "$2" = "" ]; then
+      cp -R /usr/share/bubba-album/thumbs/* /var/lib/album/thumbs/
+      chown www-data:www-data -R /var/lib/album/thumbs/
+    fi
+
     invoke-rc.d apache2 reload;
 
     perl /usr/share/bubba-album/flush_thumbs.pl || true

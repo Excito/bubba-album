@@ -5,3 +5,4 @@ flush_thumbs.pl /usr/share/bubba-album
 debian/debian-db.template /usr/share/dbconfig-common/data/bubba-album
 album/* /usr/share/album
 samples /usr/share/bubba-album
+thumbs /usr/share/bubba-album

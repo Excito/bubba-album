@@ -61,3 +61,4 @@ CREATE TABLE `sessions` (
   `user_data` text NOT NULL,
   PRIMARY KEY  (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE image ADD COLUMN created DATETIME DEFAULT NULL;
