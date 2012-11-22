@@ -1,3 +1,9 @@
+bubba-album (2.5.1.12) unstable; urgency=low
+
+  * update default album mysql
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 22 Nov 2012 10:02:55 +0100
+
 bubba-album (2.5.1.11) unstable; urgency=low
 
   * need to update the old database
