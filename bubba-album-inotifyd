@@ -30,6 +30,9 @@ my_logger.info("using user %s" % config['dbc_dbuser'])
 
 
 class EventHandler(pyinotify.ProcessEvent):
+    def process_IN_CLOSE_WRITE(self, event):
+        return self.process_IN_CREATE(event)
+
     def process_IN_MOVED_TO(self, event):
         return self.process_IN_CREATE(event)
 
@@ -37,6 +40,7 @@ class EventHandler(pyinotify.ProcessEvent):
         return self.process_IN_DELETE(event)
 
     def process_IN_CREATE(self, event):
+        my_logger.info("Starting to process %s" % event.pathname)
 
         if event.dir:
             return
@@ -62,40 +66,43 @@ class EventHandler(pyinotify.ProcessEvent):
 
         day_id = self.set_day(month_id, db, c, d)
 
+        width = height = 0
         try:
             im = Image.open(event.pathname)
             (width, height) = im.size
-            c.execute(
-                """INSERT INTO image (path, name, width, height, created, album) VALUES (%s,%s,%s,%s,%s,%s)""",
-                (
-                    event.pathname,
-                    event.name,
-                    width,
-                    height,
-                    dt.isoformat(),
-                    day_id
-                )
-            )
-            db.commit()
-            image_id = c.lastrowid
-            my_logger.info("Added %s (%sx%s) with ID %s" % (event.pathname, width, height, c.lastrowid))
-
-            spool = "/var/spool/album"
-            if os.path.exists(spool) and os.path.isdir(spool):
-                os.symlink(event.pathname, os.path.join(spool, str(image_id)))
-                if os.path.exists('/tmp/bubba-album.pid'):
-                    pid = open('/tmp/bubba-album.pid', 'r').read()
-                    try:
-                        p = psutil.Process(int(pid))
-                        if not p.is_running():
-                            subprocess.call(['/usr/sbin/album_import.pl'])
-                    except psutil.error.NoSuchProcess:
-                            subprocess.call(['/usr/sbin/album_import.pl'])
-                else:
-                    subprocess.call(['/usr/sbin/album_import.pl'])
         except:
             my_logger.warning("Unable to open %s as an image. Ignoring file" % event.pathname)
-            pass
+        c.execute(
+            """INSERT INTO image (path, name, width, height, created, album) VALUES (%s,%s,%s,%s,%s,%s)""",
+            (
+                event.pathname,
+                event.name,
+                width,
+                height,
+                dt.isoformat(),
+                day_id
+            )
+        )
+        db.commit()
+        image_id = c.lastrowid
+        my_logger.info("Added %s (%sx%s) with ID %s" % (event.pathname, width, height, c.lastrowid))
+
+        spool = "/var/spool/album"
+        if os.path.exists(spool) and os.path.isdir(spool):
+            try:
+                os.symlink(event.pathname, os.path.join(spool, str(image_id)))
+            except:
+                pass
+            if os.path.exists('/tmp/bubba-album.pid'):
+                pid = open('/tmp/bubba-album.pid', 'r').read()
+                try:
+                    p = psutil.Process(int(pid))
+                    if not p.is_running():
+                        subprocess.call(['/usr/sbin/album_import.pl'])
+                except psutil.error.NoSuchProcess:
+                        subprocess.call(['/usr/sbin/album_import.pl'])
+            else:
+                subprocess.call(['/usr/sbin/album_import.pl'])
 
     def process_IN_DELETE(self, event):
         if event.dir:
@@ -178,7 +185,7 @@ class EventHandler(pyinotify.ProcessEvent):
         return year_id
 
 wm = pyinotify.WatchManager()
-mask = pyinotify.IN_DELETE | pyinotify.IN_CREATE | pyinotify.IN_MOVED_TO | pyinotify.IN_MOVED_FROM  # watched events
+mask = pyinotify.ALL_EVENTS  # watched events
 path = '/home/storage/pictures'
 
 handler = EventHandler()
@@ -189,3 +196,5 @@ try:
     notifier.loop(daemonize=True)
 except pyinotify.NotifierError, err:
     print >> sys.stderr, err
+except:
+    my_logger.exception("Exception thrown :(")
