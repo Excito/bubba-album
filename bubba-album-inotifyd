@@ -62,36 +62,40 @@ class EventHandler(pyinotify.ProcessEvent):
 
         day_id = self.set_day(month_id, db, c, d)
 
-        im = Image.open(event.pathname)
-        (width, height) = im.size
-        c.execute(
-            """INSERT INTO image (path, name, width, height, created, album) VALUES (%s,%s,%s,%s,%s,%s)""",
-            (
-                event.pathname,
-                event.name,
-                width,
-                height,
-                dt.isoformat(),
-                day_id
+        try:
+            im = Image.open(event.pathname)
+            (width, height) = im.size
+            c.execute(
+                """INSERT INTO image (path, name, width, height, created, album) VALUES (%s,%s,%s,%s,%s,%s)""",
+                (
+                    event.pathname,
+                    event.name,
+                    width,
+                    height,
+                    dt.isoformat(),
+                    day_id
+                )
             )
-        )
-        db.commit()
-        image_id = c.lastrowid
-        my_logger.info("Added %s (%sx%s) with ID %s" % (event.pathname, width, height, c.lastrowid))
+            db.commit()
+            image_id = c.lastrowid
+            my_logger.info("Added %s (%sx%s) with ID %s" % (event.pathname, width, height, c.lastrowid))
 
-        spool = "/var/spool/album"
-        if os.path.exists(spool) and os.path.isdir(spool):
-            os.symlink(event.pathname, os.path.join(spool, str(image_id)))
-            if os.path.exists('/tmp/bubba-album.pid'):
-                pid = open('/tmp/bubba-album.pid', 'r').read()
-                try:
-                    p = psutil.Process(int(pid))
-                    if not p.is_running():
-                        subprocess.call(['/usr/sbin/album_import.pl'])
-                except psutil.error.NoSuchProcess:
-                        subprocess.call(['/usr/sbin/album_import.pl'])
-            else:
-                subprocess.call(['/usr/sbin/album_import.pl'])
+            spool = "/var/spool/album"
+            if os.path.exists(spool) and os.path.isdir(spool):
+                os.symlink(event.pathname, os.path.join(spool, str(image_id)))
+                if os.path.exists('/tmp/bubba-album.pid'):
+                    pid = open('/tmp/bubba-album.pid', 'r').read()
+                    try:
+                        p = psutil.Process(int(pid))
+                        if not p.is_running():
+                            subprocess.call(['/usr/sbin/album_import.pl'])
+                    except psutil.error.NoSuchProcess:
+                            subprocess.call(['/usr/sbin/album_import.pl'])
+                else:
+                    subprocess.call(['/usr/sbin/album_import.pl'])
+        except:
+            my_logger.warning("Unable to open %s as an image. Ignoring file" % event.pathname)
+            pass
 
     def process_IN_DELETE(self, event):
         if event.dir:
