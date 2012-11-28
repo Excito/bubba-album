@@ -1,3 +1,9 @@
+bubba-album (2.5.1.13) unstable; urgency=low
+
+  * start album import if no pid file exists
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 28 Nov 2012 18:18:13 +0100
+
 bubba-album (2.5.1.12) unstable; urgency=low
 
   * update default album mysql

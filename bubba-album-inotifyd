@@ -90,6 +90,8 @@ class EventHandler(pyinotify.ProcessEvent):
                         subprocess.call(['/usr/sbin/album_import.pl'])
                 except psutil.error.NoSuchProcess:
                         subprocess.call(['/usr/sbin/album_import.pl'])
+            else:
+                subprocess.call(['/usr/sbin/album_import.pl'])
 
     def process_IN_DELETE(self, event):
         if event.dir:
