@@ -311,12 +311,8 @@ $(function(){
             <div id="header">
                 <?if(isB3()):?>
 	                <a href="#" id="a_logo" onclick="location.href='<?=$this->config->item("base_url")?>'">
-			<img id="img_logo" src="<?=$this->config->item("base_url")?>/views/_img/B3_logo.png" alt="<?=_("B3 start page")?>" title="<?=_("B3 start page")?>" />
+			<img id="img_logo" src="<?=$this->config->item("base_url")?>/views/_img/Tele2FromExcito.png" alt="<?=_("B3 start page")?>" title="<?=_("B3 start page")?>" />
 			</a>
-			<div id="main-excito-logo">
-				<a href="http://www.excito.com" class="ui-excito-link"><img id="ex_logo" src="<?=$this->config->item("base_url")?>/views/_img/purple-X.png" alt="<?=_('Excito')?>" /></a>
-                <span id="ui-main-byExcito"><?=_("by Excito Sweden")?></span>
-			</div>
                 <?else:?>
 		                <a href="#" id="a_logo" onclick="location.href='<?=$this->config->item("base_url")?>'">
 				<img id="img_logo" src="<?=$this->config->item("base_url")?>/views/_img/logo.png" alt="BUBBA | 2" title="BUBBA | 2" />

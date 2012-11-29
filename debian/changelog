@@ -1,3 +1,9 @@
+bubba-album (2.5.1.15teletwo1) unstable; urgency=low
+
+  * add tele2 logo
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 29 Nov 2012 11:21:12 +0100
+
 bubba-album (2.5.1.15) unstable; urgency=low
 
   * try to process more and all events, especially close events
