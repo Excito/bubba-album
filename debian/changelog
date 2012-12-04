@@ -1,3 +1,10 @@
+bubba-album (2.5.1.15teletwo2) unstable; urgency=low
+
+  * update pyinotify
+  * abort adding images if already in database (closes: #544)
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 04 Dec 2012 14:58:27 +0100
+
 bubba-album (2.5.1.15teletwo1) unstable; urgency=low
 
   * add tele2 logo
