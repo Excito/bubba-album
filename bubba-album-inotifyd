@@ -47,6 +47,12 @@ class EventHandler(pyinotify.ProcessEvent):
         db = MySQLdb.connect(passwd=config["dbc_dbpass"], user=config["dbc_dbuser"], db=config["dbc_dbname"])
         c = db.cursor()
 
+        c.execute("""SELECT COUNT(id) FROM image WHERE path = %s""", (event.pathname))
+        count = c.fetchone()
+        if count[0] > 0:
+            my_logger.debug("Image %s already found in database." % event.pathname)
+            return
+
         try:
             meta = pyexiv2.Image(event.pathname)
             meta.readMetadata()
