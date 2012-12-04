@@ -189,7 +189,8 @@ mask = pyinotify.ALL_EVENTS  # watched events
 path = '/home/storage/pictures'
 
 handler = EventHandler()
-notifier = pyinotify.Notifier(wm, handler, read_freq=4)
+notifier = pyinotify.Notifier(wm, handler, read_freq=10)
+notifier.coalesce_events()
 wm.add_watch(path, mask, rec=True, auto_add=True)
 
 try:
