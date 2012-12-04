@@ -19,14 +19,11 @@ import psutil
 config = ConfigObj("/etc/dbconfig-common/bubba-album.conf")
 
 my_logger = logging.getLogger('MyLogger')
-my_logger.setLevel(logging.DEBUG)
+my_logger.setLevel(logging.INFO)
 
 handler = logging.handlers.SysLogHandler(address='/dev/log')
 
 my_logger.addHandler(handler)
-
-
-my_logger.info("using user %s" % config['dbc_dbuser'])
 
 
 class EventHandler(pyinotify.ProcessEvent):
