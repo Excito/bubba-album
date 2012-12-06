@@ -156,7 +156,7 @@ class Album_model extends Model {
 			$name = $query->row()->name;
 			$id = $image;
 
-			$thumb_path = get_thumb_path( $id );
+			$thumb_path = utf8_decode(get_thumb_path( $id ));
 			$image_path =  get_image_path( $path );
 			if( ! file_exists( $thumb_path ) ) {
 				$mimetype = image_type_to_mime_type(exif_imagetype($image_path));
@@ -182,7 +182,7 @@ class Album_model extends Model {
 			$name = $query->row()->name;
 			$id = $image;
 
-			$thumb_path = get_rescaled_path( $id );
+			$thumb_path = utf8_decode(get_rescaled_path( $id ));
 			$image_path =  get_image_path( $path );
 			$mimetype = image_type_to_mime_type(exif_imagetype($image_path));
 			if( ! file_exists( $thumb_path ) ) {
@@ -206,7 +206,7 @@ class Album_model extends Model {
 		if( $query->num_rows() > 0 ) {
 			$path = $query->row()->path;
 			$name = $query->row()->name;
-			return array( $name, get_image_path( $path ) );
+			return array( $name, utf8_decode(get_image_path($path)) );
 		}
 	}
 
