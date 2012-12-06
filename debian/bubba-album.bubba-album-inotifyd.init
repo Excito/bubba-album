@@ -21,6 +21,7 @@ DAEMON_ARGS=""
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 PROC_NAME=bubba-album-ino
+export LC_CTYPE=en_US.UTF-8
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
