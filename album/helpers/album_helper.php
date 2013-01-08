@@ -1,5 +1,12 @@
 <?php
 
+function _utf8_deocde($str) {
+  if(mb_detect_encoding($str, 'UTF-8',true)) {
+    return utf8_decode($str);
+  }
+  return $str;
+}
+
 function get_thumb_path( $id ) {
 		$CI = get_instance();
 		return $CI->config->item('thumbs_path')."/thumbs/$id";

@@ -1,3 +1,9 @@
+bubba-album (2.5.1.15teletwo6) unstable; urgency=low
+
+  * try deocde utf8 if mb detect encoding
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 08 Jan 2013 10:19:08 +0100
+
 bubba-album (2.5.1.15teletwo5) unstable; urgency=low
 
   * due to a "bug" in php, filenames must be in latin1
