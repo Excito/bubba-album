@@ -1,6 +1,6 @@
 <?php
 
-function _utf8_deocde($str) {
+function _utf8_decode($str) {
   if(mb_detect_encoding($str, 'UTF-8',true)) {
     return utf8_decode($str);
   }
