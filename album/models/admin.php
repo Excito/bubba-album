@@ -1,6 +1,6 @@
 <?php
 require_once "HTTP/Request.php";
-class Admin extends Model {
+class Admin extends CI_Model {
 	const TTL=10; // in seconds
 	private $session_id = null;
 	function __construct() {
@@ -9,7 +9,7 @@ class Admin extends Model {
 		} elseif( isset($this->session) ) {
 			$this->session_id = $this->session->userdata('phpsessid');
 		}
-		parent::Model();
+		parent::__construct();
 	}
 
 	public function login($username, $password) {

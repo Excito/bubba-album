@@ -1,7 +1,7 @@
 <?php
-class Move extends Controller {
+class Move extends CI_Controller {
         function __construct() {
-                parent::Controller();
+                parent::__construct();
         }
 		public function json() {
 			$this->load->model('admin');

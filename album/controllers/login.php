@@ -1,7 +1,7 @@
 <?php
-class Login extends Controller {
+class Login extends CI_Controller {
 	function __construct() {
-		parent::Controller();
+		parent::__construct();
 	}
 	public function json() {
 		$username = $this->input->post('username');
