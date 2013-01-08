@@ -62,3 +62,5 @@ CREATE TABLE `sessions` (
   PRIMARY KEY  (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ALTER TABLE image ADD COLUMN created DATETIME DEFAULT NULL;
+CREATE INDEX last_activity_idx ON sessions(last_activity);
+ALTER TABLE sessions MODIFY user_agent VARCHAR(120);

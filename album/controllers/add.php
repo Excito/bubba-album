@@ -1,7 +1,7 @@
 <?php
-class Add extends Controller {
+class Add extends CI_Controller {
         function __construct() {
-                parent::Controller();
+                parent::__construct();
 		}
 		private function _fixpath($path) {
 			$path = preg_replace("#(^|\/)\.\.?(\/|$)#", '/', $path);

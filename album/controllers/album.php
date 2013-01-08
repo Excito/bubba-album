@@ -1,7 +1,7 @@
 <?php
-class Album extends Controller {
+class Album extends CI_Controller {
 	function __construct() {
-		parent::Controller();
+		parent::__construct();
 		$this->load->model('admin');
 	}
 	function json() {

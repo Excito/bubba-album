@@ -1,7 +1,7 @@
 <?php
-class Perm extends Controller {
+class Perm extends CI_Controller {
         function __construct() {
-                parent::Controller();
+                parent::__construct();
 		}
 		public function show_access() {
 			$this->load->model('admin');

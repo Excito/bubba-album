@@ -1,7 +1,7 @@
 <?php
-class Modify extends Controller {
+class Modify extends CI_Controller {
         function __construct() {
-                parent::Controller();
+                parent::__construct();
 		}
 		public function json() {
 			$this->load->model('admin');

@@ -1,7 +1,7 @@
 <?php
-class Logout extends Controller {
+class Logout extends CI_Controller {
 	function __construct() {
-		parent::Controller();
+		parent::__construct();
 	}
 	public function json() {
 		$this->load->model('admin');

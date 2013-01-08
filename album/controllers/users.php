@@ -1,7 +1,7 @@
 <?php
-class Users extends Controller {
+class Users extends CI_Controller {
         function __construct() {
-                parent::Controller();
+                parent::__construct();
 		}
 		public function list_users() {
 			$this->load->model('admin');

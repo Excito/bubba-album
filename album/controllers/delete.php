@@ -1,7 +1,7 @@
 <?php
-class Delete extends Controller {
+class Delete extends CI_Controller {
         function __construct() {
-                parent::Controller();
+                parent::__construct();
         }
 		public function json() {
 			$this->load->model('admin');

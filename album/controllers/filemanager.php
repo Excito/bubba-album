@@ -1,7 +1,7 @@
 <?php
-class Filemanager extends Controller {
+class Filemanager extends CI_Controller {
 	function __construct() {
-		parent::Controller();
+		parent::__construct();
 	}
 	function json() {
 			$this->load->model('admin');

@@ -9,5 +9,6 @@ override_dh_install:
 	cat album_sample_data.sql >> debian/bubba-album/usr/share/dbconfig-common/data/bubba-album/install/mysql
 	install -DT album_database_upgrade1.pl debian/bubba-album/usr/share/dbconfig-common/data/bubba-album/upgrade/scripts/2.0.0.5
 	install -DT album_database_upgrade2.sql debian/bubba-album/usr/share/dbconfig-common/data/bubba-album/upgrade/mysql/2.5.1.7
+	install -DT album_database_upgrade3.sql debian/bubba-album/usr/share/dbconfig-common/data/bubba-album/upgrade/mysql/2.5.1.15teletwo8
 	dh_codeigniter --destdir=/usr/share/album -x
 	dh_installinit --name=bubba-album-inotifyd

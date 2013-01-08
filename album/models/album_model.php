@@ -1,8 +1,8 @@
 <?php
 class ImageNotGeneratedException extends Exception { }
-class Album_model extends Model {
+class Album_model extends CI_Model {
 	function __construct() {
-		parent::Model();
+		parent::__construct();
 		$this->load->helper('bubba_socket');
 	}
 	function album_create_album( $name, $caption, $parent, $public ) {
