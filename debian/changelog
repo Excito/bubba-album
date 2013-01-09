@@ -1,8 +1,9 @@
-bubba-album (2.5.1.15teletwo8) unstable; urgency=low
+bubba-album (2.5.1.15teletwo9) unstable; urgency=low
 
   * updating codeigniter updates
+  * adding encryption key
 
- -- Carl Fürstenberg <carl@excito.com>  Tue, 08 Jan 2013 15:28:13 +0100
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 09 Jan 2013 09:30:58 +0100
 
 bubba-album (2.5.1.15teletwo7) unstable; urgency=low
 
