@@ -156,8 +156,8 @@ class Album_model extends CI_Model {
 			$name = $query->row()->name;
 			$id = $image;
 
-			$thumb_path = _utf8_decode(get_thumb_path( $id ));
-			$image_path =  _utf8_decode(get_image_path( $path ));
+			$thumb_path = get_thumb_path( $id );
+			$image_path =  get_image_path( $path );
 			if( ! file_exists( $thumb_path ) ) {
 				$mimetype = image_type_to_mime_type(exif_imagetype($image_path));
 				if( $mimetype == 'image/jpeg' ) {
@@ -182,8 +182,8 @@ class Album_model extends CI_Model {
 			$name = $query->row()->name;
 			$id = $image;
 
-			$thumb_path = _utf8_decode(get_rescaled_path( $id ));
-			$image_path = _utf8_decode(get_image_path( $path ));
+			$thumb_path = get_rescaled_path( $id );
+			$image_path = get_image_path( $path );
 			$mimetype = image_type_to_mime_type(exif_imagetype($image_path));
 			if( ! file_exists( $thumb_path ) ) {
 				if( $mimetype == 'image/jpeg' ) {
@@ -206,7 +206,7 @@ class Album_model extends CI_Model {
 		if( $query->num_rows() > 0 ) {
 			$path = $query->row()->path;
 			$name = $query->row()->name;
-			return array( $name, _utf8_decode(get_image_path($path)) );
+			return array( $name, get_image_path($path));
 		}
 	}
 
