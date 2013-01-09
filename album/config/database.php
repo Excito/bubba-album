@@ -39,18 +39,18 @@ $active_record = TRUE;
 
 require_once("/etc/album/debian-db.php");
 
-$db['default']['hostname'] = "$dbserver";
+$db['default']['hostname'] = "$dbtype:host=$dbserver";
 $db['default']['username'] = "$dbuser";
 $db['default']['password'] = "$dbpass";
 $db['default']['database'] = "$dbname";
-$db['default']['dbdriver'] = "$dbtype";
+$db['default']['dbdriver'] = "pdo";
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = "";
 $db['default']['char_set'] = "utf8";
-$db['default']['dbcollat'] = "utf8_general_ci";
+$db['default']['dbcollat'] = "utf8_bin";
 
 
 /* End of file database.php */
