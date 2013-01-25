@@ -1,3 +1,16 @@
+bubba-album (2.5.2) unstable testing; urgency=low
+
+  * adding gitreview
+  * update pyinotify
+  * abort adding images if already in database (closes: #544)
+  * decrease default logging level
+  * add explicit LC_CTYPE to daemon
+  * updating codeigniter updates
+  * adding encryption key
+  * change database driver to pdo
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 25 Jan 2013 15:38:45 +0100
+
 bubba-album (2.5.1.15) unstable; urgency=low
 
   * try to process more and all events, especially close events
