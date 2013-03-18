@@ -145,7 +145,7 @@ class EventHandler(pyinotify.ProcessEvent):
         )):
             day_id = cursor.fetchone()[0]
         else:
-            cursor.execute("""INSERT INTO album (name,parent,caption,path) VALUES (%s,%s,%s,'')""", (
+            cursor.execute("""INSERT INTO album (name,parent,caption,path,public) VALUES (%s,%s,%s,'',0)""", (
                 date.day,
                 month_id,
                 "Images created on the day %s of the month %s of the year %s" % (date.day, date.month, date.year)
@@ -163,7 +163,7 @@ class EventHandler(pyinotify.ProcessEvent):
             month_id = cursor.fetchone()[0]
         else:
             my_logger.debug("created for month %s for year %s" % (date.month, date.year))
-            cursor.execute("""INSERT INTO album (name,parent,caption,path) VALUES (%s,%s,%s,'')""", (
+            cursor.execute("""INSERT INTO album (name,parent,caption,path,public) VALUES (%s,%s,%s,'',0)""", (
                 date.month,
                 year_id,
                 "Images created on the month %s of the year %s" % (date.month, date.year)
@@ -178,7 +178,7 @@ class EventHandler(pyinotify.ProcessEvent):
             year_id = cursor.fetchone()[0]
         else:
             my_logger.debug("created for year %s" % date.year)
-            cursor.execute("""INSERT INTO album (name,caption,path) VALUES (%s,%s,'')""", (
+            cursor.execute("""INSERT INTO album (name,caption,path,public) VALUES (%s,%s,'',0)""", (
                 date.year,
                 "Images created on the year %s" % date.year
             ))
